@@ -4,33 +4,33 @@
 
 - name: Enable auto detection of line endings in php.ini
   lineinfile:
-    dest: /etc/php/7.1/fpm/php.ini
+    dest: /etc/php/7.3/fpm/php.ini
     state: present
     regexp: '^;auto_detect_line_endings'
     line: "auto_detect_line_endings = {{ php_auto_detect_line_endings }}"
 
 - name: Set the memory_limit in php.ini
   lineinfile:
-    dest: /etc/php/7.1/fpm/php.ini
+    dest: /etc/php/7.3/fpm/php.ini
     state: present
     regexp: '^memory_limit'
     line: "memory_limit = {{ php_memory_limit }}"
 
 - name: Set the session.save_handler in php.ini
   lineinfile:
-    dest: /etc/php/7.1/fpm/php.ini
+    dest: /etc/php/7.3/fpm/php.ini
     state: present
     regexp: '^session.save_handler'
     line: "session.save_handler = {{ php_session_save_handler }}"
 
 - name: Set the session.save_path in php.ini
   lineinfile:
-    dest: /etc/php/7.1/fpm/php.ini
+    dest: /etc/php/7.3/fpm/php.ini
     state: present
     regexp: '^;session.save_path'
     line: "session.save_path = {{ php_session_save_path }}"
 
-- name: restart php7.1-fpm
+- name: restart php7.3-fpm
   service:
-    name: php7.1-fpm
+    name: php7.3-fpm
     state: restarted

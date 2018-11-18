@@ -1,5 +1,9 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
+###
+# Addiitional installtion steps for node here: https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-18-04
+###
+
 
 # This didn't work in windows on version 1.8.1
 # 1.9.1 was fine
@@ -39,8 +43,8 @@ Vagrant.configure("2") do |config|
   config.vm.box = "yk0/ubuntu-xenial"
   config.vm.hostname = vmconfigFile_hostName
 
-  config.vm.define :default do |innoved|
-    innoved.vm.network :private_network, :ip => vmconfigFile_ipAddress
+  config.vm.define :atlas do |atlas|
+    atlas.vm.network :private_network, :ip => vmconfigFile_ipAddress
   end
 
   # Libvirt configuration options
@@ -98,13 +102,13 @@ Vagrant.configure("2") do |config|
   #SHELL
   if Vagrant::Util::Platform.linux?
     config.vm.provision :ansible do |ansible|
-        ansible.playbook = "vagrant/php71/playbooks/_provision_vm.yml"
+        ansible.playbook = "vagrant/playbooks/_provision_vm.yml"
         #ansible.verbose = "v"
         ansible.limit = "all"
     end
   else
     config.vm.provision "ansible_local" do |ansible|
-        ansible.playbook = "vagrant/php71/playbooks/_provision_vm.yml"
+        ansible.playbook = "vagrant/playbooks/_provision_vm.yml"
         ansible.limit = "all"
     end
   end

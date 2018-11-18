@@ -17,11 +17,11 @@
 - name: Install ppa:ondrej/php
   apt_repository: repo="ppa:ondrej/php" state=present
 
-- name: Install php7.1 (ubuntu)
-  include: php-packages.yml php_package_prefix=php7.1
+- name: Install php7.3 (ubuntu)
+  include: php-packages.yml php_package_prefix=php7.3
 
 - name: Set default cli version
-  alternatives: name=php path=/usr/bin/php7.1
+  alternatives: name=php path=/usr/bin/php7.3
 
 # Fix https://github.com/oerdnj/deb.sury.org/issues/266
 #- name: Disable php*-fpm apache config
@@ -34,7 +34,7 @@
 - name: Enable php*-fpm apache config
   command: a2enconf {{ item }}
   with_items:
-    - php7.1-fpm
+    - php7.3-fpm
   changed_when: False
   failed_when: False
 

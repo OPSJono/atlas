@@ -3,91 +3,11 @@ mysql_bind_address: '*'
 
 mysql_users:
    - name: root
-     host: 192.168.33.41
+     host: 192.168.22.31
      password: reverse
      #     priv: *.*:USAGE
 
 mysql_databases:
-   - name: animalates
-     collation: utf8mb4_unicode_ci
-     encoding: utf8mb4
-
-   - name: aspire
-     collation: utf8mb4_unicode_ci
-     encoding: utf8mb4
-
-   - name: ccf
-     collation: utf8mb4_unicode_ci
-     encoding: utf8mb4
-
-   - name: csl
-     collation: utf8mb4_unicode_ci
-     encoding: utf8mb4
-
-   - name: development
-     collation: utf8mb4_unicode_ci
-     encoding: utf8mb4
-
-   - name: dmspl2
-     collation: utf8mb4_unicode_ci
-     encoding: utf8mb4
-
-   - name: emsgw
-     collation: utf8mb4_unicode_ci
-     encoding: utf8mb4
-
-   - name: emslfe
-     collation: utf8mb4_unicode_ci
-     encoding: utf8mb4
-
-   - name: emspm
-     collation: utf8mb4_unicode_ci
-     encoding: utf8mb4
-
-   - name: emsrfl
-     collation: utf8mb4_unicode_ci
-     encoding: utf8mb4
-
-   - name: emsrlt
-     collation: utf8mb4_unicode_ci
-     encoding: utf8mb4
-
-   - name: emsshs
-     collation: utf8mb4_unicode_ci
-     encoding: utf8mb4
-
-   - name: epr
-     collation: utf8mb4_unicode_ci
-     encoding: utf8mb4
-
-   - name: irfu
-     collation: utf8mb4_unicode_ci
-     encoding: utf8mb4
-
-   - name: kyp
-     collation: utf8mb4_unicode_ci
-     encoding: utf8mb4
-
-   - name: par
-     collation: utf8mb4_unicode_ci
-     encoding: utf8mb4
-
-   - name: proconw
-     collation: utf8mb4_unicode_ci
-     encoding: utf8mb4
-
-   - name: psa
-     collation: utf8mb4_unicode_ci
-     encoding: utf8mb4
-
-   - name: storage
-     collation: utf8mb4_unicode_ci
-     encoding: utf8mb4
-
-   - name: warriors
-     collation: utf8mb4_unicode_ci
-     encoding: utf8mb4
-
-   - name: whuss
+   - name: cv
      collation: utf8mb4_unicode_ci
      encoding: utf8mb4

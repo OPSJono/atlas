@@ -1,46 +1,4 @@
 ---
-- name: Add ems legacy public path env var to bashrc.
-  lineinfile:
-    dest: /home/vagrant/.bashrc
-    state: present
-    regexp: '^export INNOVED_PUBLIC_PATH='
-    line: export INNOVED_PUBLIC_PATH=/vagrant/public
-
-- name: Add ems legacy config path env var to bashrc.
-  lineinfile:
-    dest: /home/vagrant/.bashrc
-    state: present
-    regexp: '^export INNOVED_CONFIG_PATH='
-    line: export INNOVED_CONFIG_PATH=/vagrant/config
-
-- name: Add ems legacy data path env var to bashrc.
-  lineinfile:
-    dest: /home/vagrant/.bashrc
-    state: present
-    regexp: '^export INNOVED_DATA_PATH='
-    line: export INNOVED_DATA_PATH=/vagrant/data
-
-- name: Add ems legacy code path env var to bashrc.
-  lineinfile:
-    dest: /home/vagrant/.bashrc
-    state: present
-    regexp: '^export INNOVED_CODE_PATH='
-    line: export INNOVED_CODE_PATH=/vagrant/src
-
-- name: Add ems laravel path env var to bashrc.
-  lineinfile:
-    dest: /home/vagrant/.bashrc
-    state: present
-    regexp: '^export INNOVED_LARAVEL_PATH='
-    line: export INNOVED_LARAVEL_PATH=/vagrant/api/laravel
-
-- name: Add ems laravel environment env var to bashrc.
-  lineinfile:
-    dest: /home/vagrant/.bashrc
-    state: present
-    regexp: '^export LARAVEL_ENVIRONMENT='
-    line: export LARAVEL_ENVIRONMENT=development
-
 - name: Add dos2unix for runArtisanCommand.sh to bashrc.
   lineinfile:
     dest: /home/vagrant/.bashrc
@@ -70,17 +28,7 @@
 - name: Copy Xdebug config into place
   copy:
     src: templates/xdebug.ini
-    dest: /etc/php/7.1/mods-available/xdebug.ini
-
-- name: Copy Laravel development configs into place
-  shell: cp -r /vagrant/api/laravel/app/config/suggested_base_development/* /vagrant/api/laravel/app/config/development/
-  args:
-    chdir: /vagrant/api/laravel/app/config/
-
-- name: Copy vle development configs into place
-  shell: cp -r /vagrant/config/suggested_base_development/* /vagrant/config/development/
-  args:
-    chdir: /vagrant/config/
+    dest: /etc/php/7.3/mods-available/xdebug.ini
 
 - name: Add /vagrant/vagrant/tools to the $PATH
   lineinfile:
@@ -104,10 +52,10 @@
     state: present
     line: '%sudo ALL=(ALL) NOPASSWD: ALL'
 
-- name: Make sure /vagrant/api/laravel/app/storage has enough permissions
-  shell: sudo chmod -R 775 /vagrant/api/laravel/app/storage
+- name: Make sure /vagrant/storage has enough permissions
+  shell: sudo chmod -R 775 /vagrant/storage
   args:
-    chdir: /vagrant/api/laravel/app/
+    chdir: /vagrant/app/
 
 - name: modify apache2 to run as vagrant user
   lineinfile:
@@ -123,37 +71,30 @@
     regexp: '^export APACHE_RUN_GROUP='
     line: export APACHE_RUN_GROUP=vagrant
 
-- name: modify grub to improve boot time
-  lineinfile:
-    dest: /boot/grub/grub.cfg
-    state: present
-    regexp: 'set timeout=[1-9]'
-    line: set timeout=3
-
 - name: modify php-fpm pool to run as vagrant user
   lineinfile:
-    dest: /etc/php/7.1/fpm/pool.d/www.conf
+    dest: /etc/php/7.3/fpm/pool.d/www.conf
     state: present
     regexp: '^user ='
     line: user = vagrant
 
 - name: modify php-fpm pool to run as vagrant group
   lineinfile:
-    dest: /etc/php/7.1/fpm/pool.d/www.conf
+    dest: /etc/php/7.3/fpm/pool.d/www.conf
     state: present
     regexp: '^group ='
     line: group = vagrant
 
 - name: modify php-fpm pool to listen as vagrant user
   lineinfile:
-    dest: /etc/php/7.1/fpm/pool.d/www.conf
+    dest: /etc/php/7.3/fpm/pool.d/www.conf
     state: present
     regexp: '^listen.owner ='
     line: listen.owner = vagrant
 
 - name: modify php-fpm pool to listen as vagrant group
   lineinfile:
-    dest: /etc/php/7.1/fpm/pool.d/www.conf
+    dest: /etc/php/7.3/fpm/pool.d/www.conf
     state: present
     regexp: '^listen.group ='
     line: listen.group = vagrant
@@ -161,13 +102,13 @@
 - name: Composer Install
   command: /usr/local/bin/composer install
   args:
-    chdir: /vagrant/api/laravel/
+    chdir: /vagrant/
   become: true
   become_user: vagrant
 
 - name: symlink laravel folder to home
   file:
-    src: /vagrant/api/laravel
+    src: /vagrant
     dest: /home/vagrant/laravel
     state: link
 
@@ -178,7 +119,7 @@
     state: link
 
 - service:
-    name: php7.1-fpm
+    name: php7.3-fpm
     state: restarted
 
 - service:

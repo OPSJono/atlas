@@ -18,7 +18,7 @@
     - geerlingguy.apache
     - geerlingguy.mysql
     - geerlingguy.redis
-    - innoved.configure_apache
-    - innoved.php
+    - marshall.configure_apache
+    - marshall.php
     - nodesource.node
-    - innoved.vagrant
+    - marshall.vagrant

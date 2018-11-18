@@ -13,9 +13,9 @@
     state: present
   when: mysql_user_name != mysql_root_username
 
-- name: Ensure innovedadmin user is present.
+- name: Ensure marshalladmin user is present.
   mysql_user:
-    name: "innovedadmin"
+    name: "marshalladmin"
     host: '%'
     password: "reverse"
     priv: '*.*:ALL,GRANT'
