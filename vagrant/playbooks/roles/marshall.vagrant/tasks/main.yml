@@ -1,28 +1,9 @@
 ---
-- name: Add dos2unix for runArtisanCommand.sh to bashrc.
-  lineinfile:
-    dest: /home/vagrant/.bashrc
-    state: present
-    line: dos2unix /vagrant/vagrant/tools/runArtisanCommand.sh -q >> /dev/null 2>&1
-
-- name: Add dos2unix for importDatabase.sh to bashrc.
-  lineinfile:
-    dest: /home/vagrant/.bashrc
-    state: present
-    line: dos2unix /vagrant/vagrant/tools/importDatabase.sh -q >> /dev/null 2>&1
-
-- name: modify grub to improve boot time
-  lineinfile:
-    dest: /boot/grub/grub.cfg
-    state: present
-    regexp: 'set timeout=[1-9]'
-    line: set timeout=3
-
-- name: Add {customer}.local.vm and {customer}.local.dev to /etc/hosts
+- name: Add {customer}.marshall.vm and {customer}.marshall.dev to /etc/hosts
   lineinfile:
     dest: /etc/hosts
     state: present
-    line: "127.0.0.1 {{ item.name }}.local.vm"
+    line: "127.0.0.1 {{ item.name }}.marshall.vm"
   with_items: "{{ mysql_databases }}"
 
 - name: Copy Xdebug config into place
@@ -35,11 +16,6 @@
     path: "/home/vagrant/.bashrc"
     state: present
     line: 'export PATH=$PATH:/vagrant/vagrant/tools'
-
-- name: Set permissions of 0775 on the runArtisanCommand.sh
-  file:
-    path: "/vagrant/vagrant/tools/runArtisanCommand.sh"
-    mode: 0775
 
 - name: Set permissions of 0775 on the importDatabase.sh
   file:
@@ -54,8 +30,6 @@
 
 - name: Make sure /vagrant/storage has enough permissions
   shell: sudo chmod -R 775 /vagrant/storage
-  args:
-    chdir: /vagrant/app/
 
 - name: modify apache2 to run as vagrant user
   lineinfile:
@@ -71,36 +45,22 @@
     regexp: '^export APACHE_RUN_GROUP='
     line: export APACHE_RUN_GROUP=vagrant
 
-- name: modify php-fpm pool to run as vagrant user
-  lineinfile:
-    dest: /etc/php/7.3/fpm/pool.d/www.conf
-    state: present
-    regexp: '^user ='
-    line: user = vagrant
-
-- name: modify php-fpm pool to run as vagrant group
-  lineinfile:
-    dest: /etc/php/7.3/fpm/pool.d/www.conf
-    state: present
-    regexp: '^group ='
-    line: group = vagrant
-
-- name: modify php-fpm pool to listen as vagrant user
-  lineinfile:
-    dest: /etc/php/7.3/fpm/pool.d/www.conf
-    state: present
-    regexp: '^listen.owner ='
-    line: listen.owner = vagrant
-
-- name: modify php-fpm pool to listen as vagrant group
-  lineinfile:
-    dest: /etc/php/7.3/fpm/pool.d/www.conf
-    state: present
-    regexp: '^listen.group ='
-    line: listen.group = vagrant
-
 - name: Composer Install
   command: /usr/local/bin/composer install
+  args:
+    chdir: /vagrant/
+  become: true
+  become_user: vagrant
+
+- name: NPM Install
+  command: /usr/local/bin/npm install
+  args:
+    chdir: /vagrant/
+  become: true
+  become_user: vagrant
+
+- name: NPM run dev
+  command: /usr/local/bin/npm run dev
   args:
     chdir: /vagrant/
   become: true

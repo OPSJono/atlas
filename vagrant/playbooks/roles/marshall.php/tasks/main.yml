@@ -1,3 +1,0 @@
- - include_tasks: php.yml
-   tags: php
- - include_tasks: php-ini.yml

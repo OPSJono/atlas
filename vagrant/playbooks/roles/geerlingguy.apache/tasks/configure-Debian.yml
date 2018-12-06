@@ -8,14 +8,6 @@
   with_items: "{{ apache_ports_configuration_items }}"
   notify: restart apache
 
-- name: Make sure apache log folders exist (vle)
-  file:
-    path: /var/log/apache2/vle
-    state: directory
-    owner: www-data
-    group: adm
-    mode: 0775
-
 - name: Enable Apache mods.
   file:
     src: "{{ apache_server_root }}/mods-available/{{ item }}"
