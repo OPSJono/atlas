@@ -136,7 +136,7 @@ var paths = {
     'awesomebootstrapcheckbox': nodevendors + 'awesome-bootstrap-checkbox/',
     'airdatepicker': nodevendors + 'air-datepicker/dist/',
     'prettycheckable': nodevendors + 'prettyCheckable/',
-    'bootstrapcalendar': vendors + 'bootstrap-calendar/',
+    // 'bootstrapcalendar': vendors + 'bootstrap-calendar/',
     'jquerylabel': nodevendors + 'labelauty/source/',
     'dimple': nodevendors + 'dimple/dist/',
     'imagehover': nodevendors + 'imagehover/css/',
@@ -316,11 +316,11 @@ mix.copy(paths.prettycheckable + 'dist/prettyCheckable.min.js', destVendors + 'p
 mix.copy(paths.prettycheckable + 'img/sprites-sfa68604977.png', destVendors + 'prettycheckable/img');
 
 // bootstrap-calendar
-mix.copy(paths.bootstrapcalendar + 'css/calendar.min.css', destVendors + 'bootstrap-calendar/css');
-mix.copy(paths.bootstrapcalendar + 'js/calendar.min.js', destVendors + 'bootstrap-calendar/js');
-mix.copy(paths.bootstrapcalendar + 'js/language', destVendors + 'bootstrap-calendar/js/language');
-mix.copy(paths.bootstrapcalendar + 'tmpls', destVendors + 'bootstrap-calendar/tmpls');
-mix.copy(paths.bootstrapcalendar + 'img', destVendors + 'bootstrap-calendar/img');
+// mix.copy(paths.bootstrapcalendar + 'css/calendar.min.css', destVendors + 'bootstrap-calendar/css');
+// mix.copy(paths.bootstrapcalendar + 'js/calendar.min.js', destVendors + 'bootstrap-calendar/js');
+// mix.copy(paths.bootstrapcalendar + 'js/language', destVendors + 'bootstrap-calendar/js/language');
+// mix.copy(paths.bootstrapcalendar + 'tmpls', destVendors + 'bootstrap-calendar/tmpls');
+// mix.copy(paths.bootstrapcalendar + 'img', destVendors + 'bootstrap-calendar/img');
 
 //editable-table
 mix.copy(paths.editable + 'mindmup-editabletable.js', destVendors + 'editable-table/js');
