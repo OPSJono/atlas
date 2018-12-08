@@ -5737,11 +5737,6 @@ jquery@*, "jquery@2 - 3", "jquery@>= 1.7.2", "jquery@>= 1.9.0", jquery@>=1.10, j
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
   integrity sha512-Ubldcmxp5np52/ENotGxlLe6aGMvmF4R8S6tZjsP6Knsaxd/xp3Zrh50cG93lR6nPXyUFwzN3ZSOQI0wRJNdGg==
 
-jquery@^1.9.1:
-  version "1.12.4"
-  resolved "https://registry.yarnpkg.com/jquery/-/jquery-1.12.4.tgz#01e1dfba290fe73deba77ceeacb0f9ba2fec9e0c"
-  integrity sha1-AeHfuikP5z3rp3zurLD5ui/sngw=
-
 jquery@~1.11.3:
   version "1.11.3"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-1.11.3.tgz#dd8b74278b27102d29df63eae28308a8cfa1b583"
@@ -6392,7 +6387,7 @@ mark.js@^8.11.1:
   resolved "https://registry.yarnpkg.com/mark.js/-/mark.js-8.11.1.tgz#180f1f9ebef8b0e638e4166ad52db879beb2ffc5"
   integrity sha1-GA8fnr74sOY45BZq1S24eb6y/8U=
 
-"mark.js@github:julmot/mark.js":
+mark.js@julmot/mark.js:
   version "9.0.0"
   resolved "https://codeload.github.com/julmot/mark.js/tar.gz/e2535c4149772dae632536cb8e203581cbe65223"
 

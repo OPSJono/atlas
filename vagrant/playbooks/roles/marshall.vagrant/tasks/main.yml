@@ -9,7 +9,7 @@
 - name: Copy Xdebug config into place
   copy:
     src: templates/xdebug.ini
-    dest: /etc/php/7.3/mods-available/xdebug.ini
+    dest: "/etc/php/{{ php_default_version_debian }}/mods-available/xdebug.ini"
 
 - name: Add /vagrant/vagrant/tools to the $PATH
   lineinfile:
@@ -45,22 +45,27 @@
     regexp: '^export APACHE_RUN_GROUP='
     line: export APACHE_RUN_GROUP=vagrant
 
+- name: Disable default apache site
+  file:
+    dest: /etc/apache2/sites-enabled/000-default.conf
+    state: absent
+
 - name: Composer Install
-  command: /usr/local/bin/composer install
+  command: /usr/bin/composer install
   args:
     chdir: /vagrant/
   become: true
   become_user: vagrant
 
-- name: NPM Install
-  command: /usr/local/bin/npm install
+- name: Yarn Install
+  command: /usr/bin/yarn install
   args:
     chdir: /vagrant/
   become: true
   become_user: vagrant
 
 - name: NPM run dev
-  command: /usr/local/bin/npm run dev
+  command: /usr/bin/npm run dev
   args:
     chdir: /vagrant/
   become: true
@@ -77,10 +82,6 @@
     src: /vagrant/ad-hoc
     dest: /home/vagrant/ad-hoc
     state: link
-
-- service:
-    name: php7.3-fpm
-    state: restarted
 
 - service:
     name: apache2

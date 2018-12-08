@@ -13,8 +13,8 @@
     repo: "{{ item }}"
     state: present
   with_items:
-    - "deb https://deb.nodesource.com/node_{{ nodejs_version }} {{ ansible_os_family }} main"
-    - "deb-src https://deb.nodesource.com/node_{{ nodejs_version }} {{ ansible_os_family }} main"
+    - "deb https://deb.nodesource.com/node_{{ nodejs_version }} {{ node_ansible_os_family }} main"
+    - "deb-src https://deb.nodesource.com/node_{{ nodejs_version }} {{ node_ansible_os_family }} main"
   register: node_repo
 
 - name: Update apt cache if repo was added.

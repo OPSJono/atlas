@@ -13,11 +13,15 @@
   vars:
     - ansible_os_family: "Debian"
     - ansible_distribution: "Ubuntu"
+    - ansible_distribution_version: "16.04"
+    - php_default_version_debian: "7.2"
 
   roles:
     - common
     - geerlingguy.apache
     - geerlingguy.mysql
+    - geerlingguy.php
     - geerlingguy.nodejs
     - geerlingguy.redis
+    - marshall.yarn
     - marshall.vagrant
