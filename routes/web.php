@@ -15,9 +15,8 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/test', function () {
-    return view('index');
-});
+Route::get('/auth/register', ['as' => 'auth.register', 'uses' => '\Atlas\Http\Controllers\Auth\RegisterController@showRegistrationForm']);
+Route::post('/auth/register', ['as' => 'auth.register', 'uses' => '\Atlas\Http\Controllers\Auth\RegisterController@register']);
 
 
 Route::get('{name?}', 'CorePlusController@showView');

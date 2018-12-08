@@ -21,10 +21,17 @@ $(document).ready(function () {
 
     $('#register_form').bootstrapValidator({
         fields: {
-            user_name: {
+            forename: {
                 validators: {
                     notEmpty: {
-                        message: 'The user name is required'
+                        message: 'The forename is required'
+                    }
+                }
+            },
+            surname: {
+                validators: {
+                    notEmpty: {
+                        message: 'The surname is required'
                     }
                 }
             },
@@ -76,7 +83,7 @@ $(document).ready(function () {
             terms: {
                 validators: {
                     notEmpty: {
-                        message: 'The terms and conditions should be accepted'
+                        message: 'The terms and conditions must be accepted'
                     }
                 }
             }
@@ -88,8 +95,8 @@ $(document).ready(function () {
      Background slideshow
      */
     $('.bg-slider').backstretch([
-        "assets/img/pages/bg-1.jpg", "assets/img/pages/bg-2.jpg", "assets/img/pages/bg-3.jpg", "assets/img/pages/bg-4.jpg"
-    ], { duration: 2500, fade: 850 });
+        "/assets/img/pages/bg-1.jpg", "/assets/img/pages/bg-2.jpg", "/assets/img/pages/bg-3.jpg", "/assets/img/pages/bg-4.jpg"
+    ], { duration: 5000, fade: 850 });
 
     $("#terms").on("ifChanged", function () {
         $('#register_form').bootstrapValidator('revalidateField', $('#terms'));

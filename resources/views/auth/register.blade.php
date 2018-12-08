@@ -22,41 +22,59 @@
 <div class="container">
     <div class="row " id="form-login">
 
-        <div class="col-lg-8 col-md-12  col-sm-12  col-10 register-content mx-auto ">
+        <div class="col-lg-10 col-md-12  col-sm-12  col-10 register-content mx-auto ">
             <div class="row">
                <div class="col-12">
                    <div class="header">
-                       <h2 class="text-center">
+                       <h2 class="text-center" style="vertical-align: middle">
                            Sign Up
                            <small> with</small>
-                           <img src="{{asset('assets/img/pages/logo.png')}}" alt="logo">
+                           <span class="good-times">Atlas</span>
                        </h2>
                    </div>
                </div>
             </div>
             <div class="row row-bg-color">
-                <div class="col-lg-8 col-12 core-register">
-                    <form class="form-horizontal" action="{{URL::to('login')}}" id="register_form">
+                <div class="col-lg-12 col-12 core-register">
+                    <form class="form-horizontal" action="{{ URL::route('auth.register') }}" id="register_form">
                         <!-- CSRF Token -->
-                        <input type="hidden" name="_token" value="sSAo7cToGJCJ2IBFgOpYbLNnqV5n8O4DdNG5jdez"/>
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-lg-6 col-12">
                                 <div class="form-group">
-                                    <label class="control-label" for="user_name">USER NAME</label>
+                                    <label class="control-label" for="forename">FORENAME</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="User Name"
-                                               name="user_name" id="user_name" value=""/>
+                                        <input type="text" class="form-control" placeholder="John"
+                                               name="forename" id="forename" value=""/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-12 pl-lg-0 pl-3">
+                                <div class="form-group">
+                                    <label class="control-label" for="surname">SURNAME</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Smith"
+                                               name="surname" id="surname" value=""/>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-12">
-                                <div class="form-group ">
+                            <div class="col-lg-6 col-12">
+                                <div class="form-group">
                                     <label class="control-label" for="email">EMAIL</label>
                                     <div class="input-group">
-                                        <input type="text" placeholder="Email Address" class="form-control" name="email"
+                                        <input type="text" placeholder="John@smith.com" class="form-control" name="email"
                                                id="email" value=""/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-12 pl-lg-0 pl-3">
+                                <div class="form-group">
+                                    <label class="control-label" for="email_confirm">CONFIRM EMAIL</label>
+                                    <div class="input-group">
+                                        <input type="text" placeholder="John@smith.com" class="form-control" name="email_confirm"
+                                               id="email_confirm" value=""/>
                                     </div>
                                 </div>
                             </div>
@@ -93,28 +111,6 @@
                                 <span> Already Have an account? <a href="{{URL::to('login')}}">Login</a></span>
                         </div>
                     </form>
-                </div>
-                <div class="col-lg-4 col-12">
-                    <div class="social-buttons">
-                        <p class="text-center"><label>YOU CAN ALSO SIGN UP WITH</label></p>
-                        <a class="btn btn-block btn-social btn-google-plus text-white">
-                            <i class="fa fa-google-plus"></i>
-                            Sign Up with Google
-                        </a>
-                        <a class="btn btn-block btn-social btn-facebook text-white">
-                            <i class="fa fa-facebook"></i>
-                            Sign Up with Facebook
-                        </a>
-                        <a class="btn btn-block btn-social btn-twitter text-white">
-                            <i class="fa fa-twitter"></i>
-                            Sign Up with Twitter
-                        </a>
-                        <a class="btn btn-block btn-social btn-linkedin text-white">
-                            <i class="fa fa-linkedin"></i>
-                            Sign Up with LinkedIn
-                        </a>
-
-                    </div>
                 </div>
             </div>
         </div>
