@@ -2,7 +2,7 @@
 
 namespace Atlas\Http\Controllers\Auth;
 
-use Atlas\User;
+use Atlas\Models\User;
 use Atlas\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -60,7 +60,7 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \Atlas\User
+     * @return \Atlas\Models\User
      */
     protected function create(array $data)
     {

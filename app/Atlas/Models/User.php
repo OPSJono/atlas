@@ -1,6 +1,6 @@
 <?php
 
-namespace Atlas;
+namespace Atlas\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
