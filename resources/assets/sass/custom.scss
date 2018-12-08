@@ -100,12 +100,19 @@ body > .header .navbar .nav > li > a:hover > .label {
   top : 3px;
 }
 body > .header .logo {
+  &>.logo-title {
+    font-size: 25px;
+    vertical-align: middle;
+    text-decoration: none;
+    color: #e3e3e3;
+    padding-left: 10px;
+  }
   display     : block;
   float       : left;
   height      : 50px;
   line-height : 50px;
-  margin-right:0;
-  padding     : 0 10px;
+  margin-right: 0;
+  padding     : 10px;
   text-align  : center;
   width       : 241px;
 }

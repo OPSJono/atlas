@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Boxed &amp; Fixed Header | Core + Admin Template</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-    <link rel="shortcut icon" href="{{asset('assets/img/favicon.ico')}}"/>
+    <link rel="shortcut icon" href="{{asset('assets/img/favicon.png')}}"/>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -31,7 +31,7 @@
     <nav class="navbar navbar-expand-md navbar-fixed-top" role="navigation">
         <a href="index" class="logo">
             <!-- Add the class icon to your logo image or logo icon to add the margining -->
-            <img src="{{asset('assets/img/logo.png')}}" alt="logo"/>
+            <img src="{{asset('assets/img/atlas/logo_64x64.png')}}" alt="logo"/> <span class="logo-title">Atlas</span>
         </a>
         <!-- Header Navbar: style can be found in header-->
         <!-- Sidebar toggle button-->

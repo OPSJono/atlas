@@ -4,7 +4,7 @@
 <head>
     <title>::Admin Forgot Password::</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="{{asset('assets/img/favicon.ico')}}"/>
+    <link rel="shortcut icon" href="{{asset('assets/img/favicon.png')}}"/>
     <!-- Bootstrap -->
     <!-- global level css -->
 {{--    <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css"/>--}}
