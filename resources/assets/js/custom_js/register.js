@@ -68,15 +68,15 @@ $(document).ready(function () {
             email_confirm: {
                 validators: {
                     notEmpty: {
-                        message: 'The email address is required'
+                        message: 'The confirm email is required'
                     },
                     regexp: {
                         regexp: /^\S+@\S{1,}\.\S{1,}$/,
-                        message: 'The input is not a valid email address'
+                        message: 'The input is not a valid email address<br />'
                     },
                     identical: {
                         field: 'email',
-                        message: 'Please enter the same email as above'
+                        message: 'Please enter the same email'
                     }
                 }
             },
@@ -95,7 +95,7 @@ $(document).ready(function () {
      Background slideshow
      */
     $('.bg-slider').backstretch([
-        "/assets/img/pages/bg-1.jpg", "/assets/img/pages/bg-2.jpg", "/assets/img/pages/bg-3.jpg", "/assets/img/pages/bg-4.jpg"
+        "/assets/img/pages/bg-1.jpg", "/assets/img/pages/bg-2.jpg", "/assets/img/pages/bg-3.jpg"
     ], { duration: 5000, fade: 850 });
 
     $("#terms").on("ifChanged", function () {

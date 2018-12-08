@@ -26,7 +26,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-4 col-10 box animated fadeInUp mx-auto">
-            <div class="text-center mb-3"><img src="{{asset('assets/img/pages/logo_gray.png')}}" alt="coreplus logo"></div>
+            <div class="text-center mb-3"><img src="{{asset('assets/img/pages/logo.png')}}" alt="coreplus logo"></div>
             <h3 class="text-center">Forgot Password
             </h3>
             <p class="text-center enter_email">
