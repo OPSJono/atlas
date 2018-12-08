@@ -15,6 +15,7 @@ __php_packages:
   - php-sqlite3
   - php-apcu
   - libapache2-mod-php{{ php_default_version_debian }}
+  - php{{ php_default_version_debian }}-mysql
 __php_webserver_daemon: "apache2"
 
 # Vendor-specific configuration paths on Debian/Ubuntu make my brain asplode.
