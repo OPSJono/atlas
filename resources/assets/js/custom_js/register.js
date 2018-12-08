@@ -24,51 +24,58 @@ $(document).ready(function () {
             forename: {
                 validators: {
                     notEmpty: {
-                        message: 'The forename is required'
+                        message: 'The forename is required<br />'
                     }
                 }
             },
             surname: {
                 validators: {
                     notEmpty: {
-                        message: 'The surname is required'
+                        message: 'The surname is required<br />'
                     }
                 }
             },
             password: {
                 validators: {
-
                     notEmpty: {
-                        message: 'Please provide a password'
-                    }
+                        message: 'Please provide a password<br />'
+                    },
+                    stringLength: {
+                        min: 6,
+                        message: 'The password must be least 6 characters<br />'
+                    },
                 }
             },
-            password_confirm: {
+            password_confirmation: {
                 validators: {
                     notEmpty: {
-                        message: 'The confirm password is required'
+                        message: 'The confirm password is required<br />'
+                    },
+                    stringLength: {
+                        min: 6,
+                        message: 'The password must be least 6 characters<br />'
                     },
                     identical: {
                         field: 'password',
-                        message: 'Please enter the same password'
+                        message: 'Please enter the same password<br />'
                     }
                 }
             },
             email: {
                 validators: {
                     notEmpty: {
-                        message: 'The email address is required'
+                        message: 'The email address is required<br />'
                     },
                     regexp: {
                         regexp: /^\S+@\S{1,}\.\S{1,}$/,
-                        message: 'The input is not a valid email address'
+                        message: 'The input is not a valid email address<br />'
                     }
                 }
             },
-            email_confirm: {
+            email_confirmation: {
                 validators: {
                     notEmpty: {
-                        message: 'The confirm email is required'
+                        message: 'The confirm email is required<br />'
                     },
                     regexp: {
                         regexp: /^\S+@\S{1,}\.\S{1,}$/,
@@ -76,14 +83,14 @@ $(document).ready(function () {
                     },
                     identical: {
                         field: 'email',
-                        message: 'Please enter the same email'
+                        message: 'Please enter the same email<br />'
                     }
                 }
             },
             terms: {
                 validators: {
                     notEmpty: {
-                        message: 'The terms and conditions must be accepted'
+                        message: 'The terms and conditions must be accepted<br />'
                     }
                 }
             }

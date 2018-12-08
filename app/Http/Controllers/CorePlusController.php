@@ -14,10 +14,8 @@ class CorePlusController extends Controller
         {
            return view($name);
 
-        }
-        else
-        {
-            return view('404');
+        } else {
+            app()->abort(404);
         }
     }
 

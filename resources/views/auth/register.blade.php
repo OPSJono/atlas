@@ -36,65 +36,83 @@
             </div>
             <div class="row row-bg-color">
                 <div class="col-lg-12 col-12 core-register">
-                    <form class="form-horizontal" action="{{ URL::route('auth.register') }}" id="register_form">
+                    <form class="form-horizontal" method="POST" action="{{ URL::route('auth.register') }}" id="register_form">
                         <!-- CSRF Token -->
                         <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
                         <div class="row">
                             <div class="col-lg-6 col-12">
-                                <div class="form-group">
+                                <div class="form-group {{ $errors->has('forename') ? 'has-error' : null }}">
                                     <label class="control-label" for="forename">FORENAME</label>
                                     <div class="input-group">
                                         <input type="text" class="form-control" placeholder="John"
-                                               name="forename" id="forename" value=""/>
+                                               name="forename" id="forename" value="{{ \Illuminate\Support\Facades\Request::old('forename', '') }}"/>
+                                        @if($errors->has('forename'))
+                                            <div class="error">{{ $errors->first('forename') }}</div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-12 pl-lg-0 pl-3">
-                                <div class="form-group">
+                                <div class="form-group {{ $errors->has('surname') ? 'has-error' : null }}">
                                     <label class="control-label" for="surname">SURNAME</label>
                                     <div class="input-group">
                                         <input type="text" class="form-control" placeholder="Smith"
-                                               name="surname" id="surname" value=""/>
+                                               name="surname" id="surname" value="{{ \Illuminate\Support\Facades\Request::old('surname', '') }}"/>
+                                        @if($errors->has('surname'))
+                                            <div class="error">{{ $errors->first('surname') }}</div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-6 col-12">
-                                <div class="form-group">
+                                <div class="form-group {{ $errors->has('email') ? 'has-error' : null }}">
                                     <label class="control-label" for="email">EMAIL</label>
                                     <div class="input-group">
                                         <input type="text" placeholder="John@smith.com" class="form-control" name="email"
-                                               id="email" value=""/>
+                                               id="email" value="{{ \Illuminate\Support\Facades\Request::old('email', '') }}"/>
+                                        @if($errors->has('email'))
+                                            <div class="error">{{ $errors->first('email') }}</div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-12 pl-lg-0 pl-3">
-                                <div class="form-group">
-                                    <label class="control-label" for="email_confirm">CONFIRM EMAIL</label>
+                                <div class="form-group" {{ $errors->has('email_confirmation') ? 'has-error' : null }}>
+                                    <label class="control-label" for="email_confirmation">CONFIRM EMAIL</label>
                                     <div class="input-group">
-                                        <input type="text" placeholder="John@smith.com" class="form-control" name="email_confirm"
-                                               id="email_confirm" value=""/>
+                                        <input type="text" placeholder="John@smith.com" class="form-control" name="email_confirmation"
+                                               id="email_confirmation" value="{{ \Illuminate\Support\Facades\Request::old('email_confirmation', '') }}"/>
+                                        @if($errors->has('email_confirmation'))
+                                            <div class="error">{{ $errors->first('email_confirmation') }}</div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row password">
                             <div class="col-lg-6 col-12 ">
-                                <div class="form-group ">
+                                <div class="form-group {{ $errors->has('password') ? 'has-error' : null }}">
                                     <label class="control-label" for="password">PASSWORD</label>
                                     <div class="input-group">
                                         <input type="password" placeholder="Password" class="form-control"
                                                name="password" id="password"/>
+                                        @if($errors->has('password'))
+                                            <small class="help-block"  data-bv-for="password">{{ $errors->first('password') }}</small>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-12 pl-lg-0 pl-3">
-                                <div class="form-group cp-group">
-                                    <label class="control-label confirm_pwd" for="password_confirm">CONFIRM PASSWORD</label>
+                                <div class="form-group cp-group {{ $errors->has('password_confirmation') ? 'has-error' : null }}">
+                                    <label class="control-label confirm_pwd" for="password_confirmation">CONFIRM PASSWORD</label>
                                     <div class="input-group pull-right">
                                         <input type="password" placeholder="Confirm Password" class="form-control"
-                                               name="password_confirm" id="password_confirm"/>
+                                               name="password_confirmation" id="password_confirmation"/>
+                                        @if($errors->has('password_confirmation'))
+                                            <small class="help-block">{{ $errors->first('password_confirmation') }}</small>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
