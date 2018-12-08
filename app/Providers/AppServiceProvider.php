@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace Atlas\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

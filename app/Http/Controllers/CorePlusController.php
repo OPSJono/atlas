@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Atlas\Http\Controllers;
 
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Request;
