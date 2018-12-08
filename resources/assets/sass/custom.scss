@@ -1,4 +1,10 @@
-
+@font-face {
+  font-family: "good-times";
+  src:
+      url(/assets/fonts/good_times_rg.woff) format("woff"),
+      url(/assets/fonts/good_times_rg.woff2) format("woff2"),
+      url(/assets/fonts/good_times_rg.ttf) format("ttf");
+}
 
 /*
 Created by: Jyostna Designs
@@ -101,6 +107,7 @@ body > .header .navbar .nav > li > a:hover > .label {
 }
 body > .header .logo {
   &>.logo-title {
+    font-family: "good-times", Helvetica, "Lucida Grande", Tahoma, Sans-Serif, Serif;
     font-size: 25px;
     vertical-align: middle;
     text-decoration: none;
