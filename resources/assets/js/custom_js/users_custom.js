@@ -32,6 +32,9 @@ $(document).ready(function () {
         "ajax":{
             url :$table.data('url'),
             type: "get",  // method  , by default get
+            beforeSend: function() {
+                $table.find('.grid-error').remove();
+            },
             complete: function() {
                 $table.find('[data-toggle="tooltip"]').tooltip();
 
@@ -42,7 +45,8 @@ $(document).ready(function () {
                 ;
             },
             error: function(response) {  // error handling
-                $table.append('<tbody class="grid-error"><tr><th colspan="30">There was an error retrieving data. Please try again later</th></tr></tbody>');
+                $('#table_processing').css('display', 'none');
+                $table.append('<tbody class="grid-error"><tr><th colspan="30" style="color: #FB8678;">There was an error retrieving data from the server. Please try again later.</th></tr></tbody>');
                 console.error(response);
             }
         },
