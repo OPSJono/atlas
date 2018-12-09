@@ -86,6 +86,10 @@ html,body{
     margin-right: 36px;
 }
 
+.form-box .login-btn:hover > i.login-btn:before {
+    content: "\f023";
+}
+
 .form-box input:focus{
     outline: 0;
     background: #eee;

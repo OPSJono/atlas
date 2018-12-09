@@ -5,9 +5,8 @@
     <title>Lockscreen</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{{asset('assets/img/favicon.png')}}"/>
+
     <!-- Bootstrap -->
-
-
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/app.css')}}"/>
 
     <!-- styles -->
@@ -50,8 +49,8 @@
                                     <small class="help-block" data-bv-for="password">{{ $errors->first('password') }}</small>
                                 @endif
                             </div>
-                            <a href="{{ route('auth.logout') }}" class="btn btn-default logout-btn pull-left">Logout</a>
-                            <button type="submit" class="btn btn-primary login-btn pull-right">Unlock</button>
+                            <a href="{{ route('auth.logout') }}" class="btn btn-default logout-btn pull-left"><i class="fa fa-fw fa-sign-out"></i> Logout</a>
+                            <button type="submit" class="btn btn-primary login-btn pull-right">Unlock <i class="fa fa-fw fa-lock lock-btn"></i></button>
                         </div>
                     </form>
                 </div>
