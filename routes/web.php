@@ -36,4 +36,17 @@ Route::post('/auth/login/locked', 'Auth\LoginController@unlock')->name('auth.log
 
 Route::get('/home', ['as' => 'home', 'uses' => '\Atlas\Http\Controllers\HomeController@index']);
 
+/**
+ * User Routes.
+ * Index
+ * List
+ * CRUD
+ * */
+Route::get('/user', '\Atlas\Http\Controllers\UserController@index')->middleware('auth')->name('user');
+Route::get('/user/list', '\Atlas\Http\Controllers\UserController@list')->middleware('auth')->name('user.list');
+Route::any('/user/create', '\Atlas\Http\Controllers\UserController@create')->middleware('auth')->name('user.create');
+Route::get('/user/{id}/view', '\Atlas\Http\Controllers\UserController@view')->middleware('auth')->name('user.view');
+Route::any('/user/{id}/update', '\Atlas\Http\Controllers\UserController@update')->middleware('auth')->name('user.update');
+Route::any('/user/{id}/delete', '\Atlas\Http\Controllers\UserController@delete')->middleware('auth')->name('user.delete');
+
 Route::get('{name?}', 'CorePlusController@showView');
