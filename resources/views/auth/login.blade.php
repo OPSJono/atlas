@@ -22,76 +22,63 @@
 </div>
 <div class="container">
     <div class="row " id="form-login">
-        <div class="col-md-8  col-sm-8  col-10 mx-auto login-content">
+        <div class="col-lg-10 col-md-12  col-sm-12  col-12 mx-auto login-content">
             <div class="row">
                 <div class="col-md-12">
                     <div class="header">
-                        <h2 class="text-center">
+                        <h2 class="text-center" style="vertical-align: middle">
                             Login
                             <small> with</small>
-                            <img src="{{asset('assets/img/pages/logo.png')}}" alt="logo">
+                            <span class="good-times">Atlas</span>
                         </h2>
                     </div>
                 </div>
             </div>
             <div class="row row-bg-color">
-                <div class="col-lg-8 col-12 core-login">
-                    <form class="form-horizontal" action="{{URL::to('index')}}" id="authentication">
+                <div class="col-lg-12 col-12 core-login">
+                    <form class="form-horizontal" method="POST" action="{{ route('auth.login') }}" id="authentication">
                         <!-- CSRF Token -->
-                        <input type="hidden" name="_token" value="sSAo7cToGJCJ2IBFgOpYbLNnqV5n8O4DdNG5jdez"/>
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
                         <div class="row">
                             <div class="col-sm-12">
-                                <div class="form-group ">
+                                <div class="form-group {{ $errors->has('email') ? 'has-error' : null }}">
                                     <label class="control-label" for="email">EMAIL</label>
                                     <div class="input-group">
-                                        <input type="text" placeholder="Email Address" class="form-control"
-                                               name="username" id="email" value=""/>
+                                        <input type="text" placeholder="John@smith.com" class="form-control" name="email"
+                                               id="email" value="{{ \Illuminate\Support\Facades\Request::old('email', '') }}"/>
+                                        @if($errors->has('email'))
+                                            <small class="help-block" data-bv-for="password">{{ $errors->first('email') }}</small>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
-                                <div class="form-group ">
+                                <div class="form-group {{ $errors->has('password') ? 'has-error' : null }}">
                                     <label class="control-label" for="password">PASSWORD</label>
                                     <div class="input-group">
                                         <input type="password" placeholder="Password" class="form-control"
                                                name="password" id="password"/>
+                                        @if($errors->has('password'))
+                                            <small class="help-block" data-bv-for="password">{{ $errors->first('password') }}</small>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                                <input type="checkbox" name="remember" id="remember"> &nbsp;
+                            <input type="checkbox" name="remember" id="remember"> &nbsp;
                             <label for="remember"> Remember Me </label>
-                            <a href="{{URL::to('forgot_password')}}" id="forgot" class="text-primary forgot1  pull-right"> Forgot Password? </a>
+                            <a href="{{ route('auth.forgot_password') }}" id="forgot" class="text-primary forgot1  pull-right"> Forgot Password? </a>
                         </div>
                         <div class="form-group ">
                             <button type="submit"  class="btn btn-primary login-btn">Login</button>
                             <br>
                             <hr>
-                            <span> New to Core Plus?<a href="{{URL::to('register')}}"> Sign Up</a></span>
+                            <span> New to Atlas?<a href="{{route('auth.register')}}"> Sign Up</a></span>
                         </div>
                     </form>
-                </div>
-                <div class="col-lg-4 col-12">
-                    <div class="social-buttons">
-                        <p class="text-center">
-                            <label>YOU CAN ALSO LOGIN WITH</label>
-                        </p>
-                        <a class="btn btn-block btn-social btn-google-plus text-white">
-                            <i class="fa fa-google-plus"></i> Login with Google
-                        </a>
-                        <a class="btn btn-block btn-social btn-facebook  text-white">
-                            <i class="fa fa-facebook"></i> Login with Facebook
-                        </a>
-                        <a class="btn btn-block btn-social btn-twitter text-white">
-                            <i class="fa fa-twitter"></i> Login with Twitter
-                        </a>
-                        <a class="btn btn-block btn-social btn-linkedin text-white">
-                            <i class="fa fa-linkedin"></i> Login with LinkedIn
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>

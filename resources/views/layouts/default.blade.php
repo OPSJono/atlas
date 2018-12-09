@@ -295,10 +295,8 @@
                              height="35" alt="User Image">
                         <div class="riot">
                             <div>
-                                Natali
-                                <span>
-                                        <i class="fa fa-caret-down"></i>
-                                    </span>
+                                {{ Auth::user()->display_name }}
+                                <span><i class="fa fa-caret-down"></i></span>
                             </div>
                         </div>
                     </a>
@@ -306,7 +304,7 @@
                         <!-- User image -->
                         <li class="user-header">
                             <img src="{{asset('assets/img/authors/avatar1.jpg')}}" class="rounded-circle" alt="User Image">
-                            <p> Nataliapery</p>
+                            <p>{{ Auth::user()->display_name }}</p>
                         </li>
                         <!-- Menu Body -->
                         <li class="p-t-3 nav-item" ><a href="{{ URL :: to('user_profile') }}" class="nav-link"> <i class="fa fa-fw fa-user"></i> My
@@ -325,7 +323,7 @@
                                 </a>
                             </div>
                             <div class="pull-right">
-                                <a href="{{ URL :: to('login') }} ">
+                                <a href="{{ route('auth.logout') }} ">
                                     <i class="fa fa-fw fa-sign-out"></i>
                                     Logout
                                 </a>
@@ -354,7 +352,7 @@
                         </a>
                         <div class="content-profile pl-3">
                             <h4 class="media-heading">
-                                Nataliapery
+                                {{ Auth::user()->display_name }}
                             </h4>
                             <ul class="icon-list list-inline">
                                 <li>
@@ -373,7 +371,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ URL::to('login') }} ">
+                                    <a href="{{ route('auth.logout') }} ">
                                         <i class="fa fa-fw fa-sign-out"></i>
                                     </a>
                                 </li>

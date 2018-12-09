@@ -36,7 +36,7 @@
             </div>
             <div class="row row-bg-color">
                 <div class="col-lg-12 col-12 core-register">
-                    <form class="form-horizontal" method="POST" action="{{ URL::route('auth.register') }}" id="register_form">
+                    <form class="form-horizontal" method="POST" action="{{ route('auth.register') }}" id="register_form">
                         <!-- CSRF Token -->
                         <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
                         <div class="row">
@@ -47,7 +47,7 @@
                                         <input type="text" class="form-control" placeholder="John"
                                                name="forename" id="forename" value="{{ \Illuminate\Support\Facades\Request::old('forename', '') }}"/>
                                         @if($errors->has('forename'))
-                                            <div class="error">{{ $errors->first('forename') }}</div>
+                                            <small class="help-block" data-bv-for="password">{{ $errors->first('forename') }}</small>
                                         @endif
                                     </div>
                                 </div>
@@ -59,7 +59,7 @@
                                         <input type="text" class="form-control" placeholder="Smith"
                                                name="surname" id="surname" value="{{ \Illuminate\Support\Facades\Request::old('surname', '') }}"/>
                                         @if($errors->has('surname'))
-                                            <div class="error">{{ $errors->first('surname') }}</div>
+                                            <small class="help-block" data-bv-for="password">{{ $errors->first('surname') }}</small>
                                         @endif
                                     </div>
                                 </div>
@@ -73,7 +73,7 @@
                                         <input type="text" placeholder="John@smith.com" class="form-control" name="email"
                                                id="email" value="{{ \Illuminate\Support\Facades\Request::old('email', '') }}"/>
                                         @if($errors->has('email'))
-                                            <div class="error">{{ $errors->first('email') }}</div>
+                                            <small class="help-block" data-bv-for="password">{{ $errors->first('email') }}</small>
                                         @endif
                                     </div>
                                 </div>
@@ -85,7 +85,7 @@
                                         <input type="text" placeholder="John@smith.com" class="form-control" name="email_confirmation"
                                                id="email_confirmation" value="{{ \Illuminate\Support\Facades\Request::old('email_confirmation', '') }}"/>
                                         @if($errors->has('email_confirmation'))
-                                            <div class="error">{{ $errors->first('email_confirmation') }}</div>
+                                            <small class="help-block" data-bv-for="password">{{ $errors->first('email_confirmation') }}</small>
                                         @endif
                                     </div>
                                 </div>

@@ -12,9 +12,9 @@ $(document).ready(function() {
     /*Background slideshow */
 
     $('.bg-slider').backstretch([
-        "assets/img/pages/lbg-1.jpg", "assets/img/pages/lbg-2.jpg", "assets/img/pages/lbg-3.jpg"
+        "/assets/img/pages/lbg-1.jpg", "/assets/img/pages/lbg-2.jpg", "/assets/img/pages/lbg-3.jpg"
     ], {
-        duration: 2500,
+        duration: 5000,
         fade: 1050
     });
 
@@ -25,14 +25,15 @@ $(document).ready(function() {
     });
     $("#authentication").bootstrapValidator({
         fields: {
-            username: {
+
+            email: {
                 validators: {
                     notEmpty: {
-                        message: 'The email address is required'
+                        message: 'The email address is required<br />'
                     },
                     regexp: {
                         regexp: /^\S+@\S{1,}\.\S{1,}$/,
-                        message: 'Please enter valid email format'
+                        message: 'The input is not a valid email address<br />'
                     }
                 }
             },

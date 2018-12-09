@@ -103,7 +103,7 @@ $(document).ready(function () {
      */
     $('.bg-slider').backstretch([
         "/assets/img/pages/bg-1.jpg", "/assets/img/pages/bg-2.jpg", "/assets/img/pages/bg-3.jpg"
-    ], { duration: 5000, fade: 850 });
+    ], { duration: 5000, fade: 1050 });
 
     $("#terms").on("ifChanged", function () {
         $('#register_form').bootstrapValidator('revalidateField', $('#terms'));
