@@ -3,6 +3,7 @@
 namespace Atlas\Models;
 
 use Atlas\Interfaces\DataTablesInterface;
+use Carbon\Carbon;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -48,7 +49,16 @@ class User extends Authenticatable implements DataTablesInterface
             array( 'db' => 'forename', 'dt' => 0 ),
             array( 'db' => 'surname',  'dt' => 1 ),
             array( 'db' => 'email',   'dt' => 2 ),
-            array( 'db' => 'created_at',     'dt' => 3 ),
+            array(
+                'db' => 'created_at',
+                'dt' => 3,
+                'formatter' => function(Carbon $d, $row) {
+                    $data = '
+                        <span class="bootstrap-tooltip" data-container="body" data-toggle="tooltip" data-title="'. (string) $d .'">'.$d->diffForHumans().'</span>
+                    ';
+                    return $data;
+                }
+            ),
             array(
                 'db'        => 'id',
                 'dt'        => 4,

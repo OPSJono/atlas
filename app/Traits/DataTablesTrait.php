@@ -3,27 +3,39 @@
 namespace Atlas\Traits;
 
 use Atlas\Interfaces\DataTablesInterface;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
+use Illuminate\Pagination\Paginator;
 
 trait DataTablesResponseTrait
 {
     /**
      * @param Request $request
      * @param DataTablesInterface $model
-     * @param Collection $collection
-     * @return array
+     * @param Builder $query
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function data_tables_json_response(Request $request, DataTablesInterface $model, Collection $collection)
+    public function data_tables_json_response(Request $request, DataTablesInterface $model, Builder $query)
     {
         $columns = $model::getDataTableColumns();
-        $data = $this->format_data($columns, $collection->toArray());
+
+        $perPage = $request->get('length', 10);
+
+        $currentPage = round($request->get('start', 0) / $request->get('length', 10) + 1);
+
+        Paginator::currentPageResolver(function () use ($currentPage) {
+            return $currentPage;
+        });
+
+        $paginator = $query->paginate($perPage);
+
+        $data = $this->format_data($columns, $paginator->items());
+
 
         $json_data = array(
             "draw"            => intval( $request->get('draw', null) ),
-            "recordsTotal"    => intval( $model::count() ),
-            "recordsFiltered" => intval( $collection->count() ),
+            "recordsTotal"    => intval( $paginator->total() ),
+            "recordsFiltered" => intval( $paginator->total() ),
             "data"            => $data
         );
 

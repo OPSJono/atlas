@@ -6,7 +6,6 @@ use Atlas\Traits\DataTablesResponseTrait;
 
 use Atlas\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
@@ -53,8 +52,6 @@ class UserController extends Controller
                 }
             }
         }
-
-        $users = $users->get();
 
         return $this->data_tables_json_response($request, (new User), $users);
 

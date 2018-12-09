@@ -32,8 +32,18 @@ $(document).ready(function () {
         "ajax":{
             url :$table.data('url'),
             type: "get",  // method  , by default get
-            error: function(){  // error handling
-                $table.append('<tbody class="grid-error"><tr><th colspan="30">No data found in the server</th></tr></tbody>');
+            complete: function() {
+                $table.find('[data-toggle="tooltip"]').tooltip();
+
+                $('.dataTables_filter, .dataTables_length').parent()
+                    .css("display", "flex")
+                    .css("flex-direction", "column")
+                    .css("justify-content", "center")
+                ;
+            },
+            error: function(response) {  // error handling
+                $table.append('<tbody class="grid-error"><tr><th colspan="30">There was an error retrieving data. Please try again later</th></tr></tbody>');
+                console.error(response);
             }
         },
     });
