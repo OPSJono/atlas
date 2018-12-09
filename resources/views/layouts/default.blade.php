@@ -392,6 +392,35 @@
                             <span class="mm-text ">Dashboard V2</span>
                         </a>
                     </li>
+                    <li {!! (Request::is('user*') ? 'class="active"' : null ) !!}>
+                        <a href="#">
+                            <i class="menu-icon fa fa-fw fa-users"></i>
+                            <span>Users</span> <span
+                                    class="fa arrow"></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li {!! (Request::is('user')? 'class="active"':"") !!}>
+                                <a href="{{ route('user') }} ">
+                                    <i class="fa fa-list" aria-hidden="true"></i> Users List
+                                </a>
+                            </li>
+                            <li {!! (Request::is('addnew_user')? 'class="active"':"") !!}>
+                                <a href="{{ route('user.create') }} ">
+                                    <i class="fa fa-fw fa-user"></i> Add New User
+                                </a>
+                            </li>
+                            <li {!! (Request::is('user_profile')? 'class="active"':"") !!}>
+                                <a href="{{ route('user') }} ">
+                                    <i class="fa fa-fw fa-user-md"></i> View Profile
+                                </a>
+                            </li>
+                            <li {!! (Request::is('deleted_users')? 'class="active"':"") !!}>
+                                <a href="{{ route('user.deleted') }} ">
+                                    <i class="fa fa-fw fa-times"></i> Deleted Users
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                     <li {!! (Request::is('form_elements') || Request::is('form_editors') || Request::is('form_validations') || Request::is('form_layouts')|| Request::is('form_wizards')|| Request::is('complex_forms')|| Request::is('complex_forms2')|| Request::is('radio_checkboxes') || Request::is('dropdowns') || Request::is('datepicker') || Request::is('advanceddate_pickers') || Request::is('x-editable') ? 'class="active"':"") !!}>
                         <a href="#">
                             <i class="menu-icon fa fa-check-square"></i>
@@ -700,35 +729,6 @@
                             <li {!! (Request::is('image_magnifier')? 'class="active"':"") !!}>
                                 <a href="{{URL::to('image_magnifier')}} ">
                                     <i class="fa  fa-search-plus"></i> Image Magnifier
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li {!! (Request::is('users/*')||Request::is('addnew_user')||Request::is('edit_user')||Request::is('user_profile')||Request::is('deleted_users')? 'class="active"':"") !!}>
-                        <a href="#">
-                            <i class="menu-icon fa fa-fw fa-users"></i>
-                            <span>Users</span> <span
-                                    class="fa arrow"></span>
-                        </a>
-                        <ul class="sub-menu">
-                            <li {!! (Request::is('users')? 'class="active"':"") !!}>
-                                <a href="{{URL::to('users')}} ">
-                                    <i class="fa fa-list" aria-hidden="true"></i> Users List
-                                </a>
-                            </li>
-                            <li {!! (Request::is('addnew_user')? 'class="active"':"") !!}>
-                                <a href="{{URL::to('addnew_user')}} ">
-                                    <i class="fa fa-fw fa-user"></i> Add New User
-                                </a>
-                            </li>
-                            <li {!! (Request::is('user_profile')? 'class="active"':"") !!}>
-                                <a href="{{URL::to('user_profile')}} ">
-                                    <i class="fa fa-fw fa-user-md"></i> View Profile
-                                </a>
-                            </li>
-                            <li {!! (Request::is('deleted_users')? 'class="active"':"") !!}>
-                                <a href="{{URL::to('deleted_users')}} ">
-                                    <i class="fa fa-fw fa-times"></i> Deleted Users
                                 </a>
                             </li>
                         </ul>

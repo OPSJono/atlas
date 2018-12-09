@@ -43,6 +43,8 @@ Route::get('/home', ['as' => 'home', 'uses' => '\Atlas\Http\Controllers\HomeCont
  * CRUD
  * */
 Route::get('/user', '\Atlas\Http\Controllers\UserController@index')->middleware('auth')->name('user');
+Route::get('/user/deleted', '\Atlas\Http\Controllers\DeletedUserController@index')->middleware('auth')->name('user.deleted');
+Route::get('/user/deleted/list', '\Atlas\Http\Controllers\DeletedUserController@list')->middleware('auth')->name('user.deleted.list');
 Route::get('/user/list', '\Atlas\Http\Controllers\UserController@list')->middleware('auth')->name('user.list');
 Route::any('/user/create', '\Atlas\Http\Controllers\UserController@create')->middleware('auth')->name('user.create');
 Route::get('/user/{id}/view', '\Atlas\Http\Controllers\UserController@view')->middleware('auth')->name('user.view');
