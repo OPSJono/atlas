@@ -43,7 +43,7 @@
           background-color: rgba(220, 220, 220, .1);
           border: 1px solid #dcdcdc;
           color: #dcdcdc;
-          border-radius: 2px;
+          border-radius: 5px;
       }
 
     .btn-outline-primary,
@@ -52,7 +52,7 @@
         background-color: rgba(66, 139, 202, .1);
         border: 1px solid #428bca;
         color: #428bca;
-        border-radius: 2px;
+        border-radius: 5px;
     }
 
     .ui-pnotify .alert-primary {
@@ -66,7 +66,7 @@
         background-color: rgba(34, 214, 157, .1);
         border: 1px solid #22d69d;
         color: #22d69d;
-        border-radius: 2px;
+        border-radius: 5px;
     }
 
     .ui-pnotify .alert-success {
@@ -80,7 +80,7 @@
         background-color: rgba(79, 193, 233, .1);
         border: 1px solid #4fc1e9;
         color: #4fc1e9;
-        border-radius: 2px;
+        border-radius: 5px;
     }
 
     .ui-pnotify .alert-info {
@@ -94,7 +94,7 @@
         background-color: rgba(251, 134, 120, .1);
         border: 1px solid #fb8678;
         color: #fb8678;
-        border-radius: 2px;
+        border-radius: 5px;
     }
 
     .ui-pnotify .alert-danger {
@@ -108,7 +108,7 @@
         background-color: rgba(255, 182, 95, .1);
         border: 1px solid #ffb65f;
         color: #ffb65f;
-        border-radius: 2px;
+        border-radius: 5px;
     }
 
     .ui-pnotify .alert-warning {
@@ -128,7 +128,7 @@
         margin: 0;
         border: 1px solid #eee;
         padding-bottom: 19px;
-        border-radius: 2px;
+        border-radius: 5px;
         margin-bottom: 18px;
     }
     .m-t-30 {

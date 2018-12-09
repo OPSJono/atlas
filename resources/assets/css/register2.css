@@ -39,7 +39,7 @@ body {
 .form-group .form-control {
     background: #f5f5f5;
     width: 100%;
-    border-radius: 2px !important;
+    border-radius: 5px !important;
     margin-top: 5px;
 }
 
@@ -65,9 +65,9 @@ body {
 }
 
 .btn {
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
 }
 
 .btn-social {

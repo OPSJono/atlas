@@ -222,7 +222,7 @@ body > .header .navbar .sidebar-toggle {
 /*real-time char*/
 
 .progress {
-    border-radius: 2px;
+    border-radius: 5px;
 }
 
 .real-time .progress {

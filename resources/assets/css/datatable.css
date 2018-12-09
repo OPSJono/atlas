@@ -453,13 +453,13 @@ tr.shown td.details-control {
 }
 .delstatus {
   width: 72px; float: left; background-color: #DE2E07; color: #fff; padding: 2px 5px 2px 5px;
-  text-align:center; border-radius: 2px; }
+  text-align:center; border-radius: 5px; }
 .apprstatus {
   width: 72px; float: left; background-color: #47A447; color: #fff; padding: 2px 5px 2px 5px;
- text-align:center; border-radius: 2px; }
+ text-align:center; border-radius: 5px; }
 .pndngstatus {
   width: 72px; float: left; background-color: #ED9C28; color: #fff; padding: 2px 5px 2px 5px;
- text-align:center; border-radius: 2px; }
+ text-align:center; border-radius: 5px; }
 .btn-xs
 {
   padding: 1px 5px;
