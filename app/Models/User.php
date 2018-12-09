@@ -7,12 +7,14 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 use \Spatie\Permission\Traits\HasRoles;
+use \Atlas\Traits\LockableTrait;
 
 
 class User extends Authenticatable
 {
     use Notifiable;
     use HasRoles;
+    use LockableTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -23,6 +25,7 @@ class User extends Authenticatable
         'forename',
         'surname',
         'email',
+        'lockout_time',
         'password',
     ];
 

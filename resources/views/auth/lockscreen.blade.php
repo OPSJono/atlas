@@ -11,6 +11,10 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/app.css')}}"/>
 
     <!-- styles -->
+    <!--global css -->
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/custom.css')}}">
+    <!--end global css -->
+
     <!--page level css -->
     <link href="{{asset('assets/css/lockscreen2.css')}}" rel="stylesheet">
     <!--end page level css-->
@@ -26,19 +30,28 @@
             <div class="lockscreen-container">
                 <div id="output"></div>
                 <div class="user-name">
-                    <h4 class="text-center">Nataliapery</h4>
-                    <small>ADMIN</small>
+                    <h4 class="text-center">{{ Auth::user()->display_name }}</h4>
+                    @if(session('lock-expires-at'))
+                        <small>Locked {{ session('lock-expires-at')->diffForHumans() }}</small>
+                    @endif
                 </div>
                 <div class="avatar"></div>
                 <div class="form-box">
-                    <form action="#" method="post">
+                    <form action="{{ route('auth.login.unlock') }}" method="POST" id="authentication">
                         <div class="form">
+                            @csrf
                             <h4>
-                                <small class="locked">Enter the Password to Unlock</small>
-                                <small class="unlocked hidden">Unlocked</small>
+                                <small class="locked">Enter your Password to Unlock</small>
                             </h4>
-                            <input type="password" name="user" class="form-control" placeholder="Password">
-                            <button class="btn btn-info login text-white text" id="index" type="submit">GO</button>
+                            <div class="form-group {{ $errors->has('password') ? 'has-error' : null }}">
+                                <input type="password" placeholder="Password" class="form-control"
+                                       name="password" id="password"/>
+                                @if($errors->has('password'))
+                                    <small class="help-block" data-bv-for="password">{{ $errors->first('password') }}</small>
+                                @endif
+                            </div>
+                            <a href="{{ route('auth.logout') }}" class="btn btn-default logout-btn pull-left">Logout</a>
+                            <button type="submit" class="btn btn-primary login-btn pull-right">Unlock</button>
                         </div>
                     </form>
                 </div>
@@ -47,11 +60,13 @@
     </div>
 </div>
 <!-- global js -->
-
-<script src="{{asset('assets/js/app.js')}}" type="text/javascript"></script>
-
+<script src="{{asset('assets/js/jquery.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/js/bootstrap.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/js/backstretch.js')}}"></script>
 <!-- end of global js -->
-<!-- page css -->
+<!-- page level js -->
+<script type="text/javascript" src="{{asset('assets/vendors/iCheck/js/icheck.js')}}"></script>
+<script src="{{asset('assets/vendors/bootstrapvalidator/js/bootstrapValidator.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('assets/js/lockscreen2.js')}}"></script>
 <!-- end of page css -->
 </body>

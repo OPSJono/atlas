@@ -38,7 +38,7 @@
                 <div class="col-lg-12 col-12 core-login">
                     <form class="form-horizontal" method="POST" action="{{ route('auth.login') }}" id="authentication">
                         <!-- CSRF Token -->
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+                        @csrf
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="form-group {{ $errors->has('email') ? 'has-error' : null }}">

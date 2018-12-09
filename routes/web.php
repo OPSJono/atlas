@@ -22,13 +22,17 @@ Route::get('/', function () {
     }
 });
 
-Route::get('/auth/register', ['as' => 'auth.register', 'uses' => '\Atlas\Http\Controllers\Auth\RegisterController@showRegistrationForm']);
-Route::post('/auth/register', ['as' => 'auth.register', 'uses' => '\Atlas\Http\Controllers\Auth\RegisterController@register']);
+Route::get('/auth/register', '\Atlas\Http\Controllers\Auth\RegisterController@showRegistrationForm')->name('auth.register');
+Route::post('/auth/register', '\Atlas\Http\Controllers\Auth\RegisterController@register')->name('auth.register');
 
-Route::get('/auth/login', ['as' => 'auth.login', 'uses' => '\Atlas\Http\Controllers\Auth\LoginController@showLoginForm']);
-Route::post('/auth/login', ['as' => 'auth.login', 'uses' => '\Atlas\Http\Controllers\Auth\LoginController@login']);
-Route::any('/auth/logout', ['as' => 'auth.logout', 'uses' => '\Atlas\Http\Controllers\Auth\LoginController@logout']);
-Route::any('/auth/forgot_password', ['as' => 'auth.forgot_password', 'uses' => '\Atlas\Http\Controllers\Auth\LoginController@logout']);
+Route::get('/auth/login', '\Atlas\Http\Controllers\Auth\LoginController@showLoginForm')->name('auth.login');
+Route::post('/auth/login', '\Atlas\Http\Controllers\Auth\LoginController@login')->name('auth.login');
+Route::any('/auth/logout', '\Atlas\Http\Controllers\Auth\LoginController@logout')->name('auth.logout');
+Route::any('/auth/forgot_password', '\Atlas\Http\Controllers\Auth\LoginController@logout')->name('auth.forgot_password');
+
+Route::get('/auth/login/lock', 'Auth\LoginController@lock')->middleware('auth')->name('auth.login.lock');
+Route::get('/auth/login/locked', 'Auth\LoginController@locked')->middleware('auth')->name('auth.login.locked');
+Route::post('/auth/login/locked', 'Auth\LoginController@unlock')->name('auth.login.unlock');
 
 Route::get('/home', ['as' => 'home', 'uses' => '\Atlas\Http\Controllers\HomeController@index']);
 

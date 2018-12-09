@@ -38,7 +38,7 @@
                 <div class="col-lg-12 col-12 core-register">
                     <form class="form-horizontal" method="POST" action="{{ route('auth.register') }}" id="register_form">
                         <!-- CSRF Token -->
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+                        @csrf
                         <div class="row">
                             <div class="col-lg-6 col-12">
                                 <div class="form-group {{ $errors->has('forename') ? 'has-error' : null }}">

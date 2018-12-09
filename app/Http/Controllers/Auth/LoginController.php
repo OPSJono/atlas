@@ -5,6 +5,9 @@ namespace Atlas\Http\Controllers\Auth;
 use Atlas\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+
 class LoginController extends Controller
 {
     /*
@@ -25,7 +28,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -34,6 +37,46 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest')->except([
+            'logout',
+            'lock',
+            'locked',
+            'unlock',
+        ]);
+    }
+
+    public function lock()
+    {
+        session(['lock-expires-at' => now()->addMinute(-1)]);
+
+        return view('auth.lockscreen');
+    }
+
+    public function locked()
+    {
+        if(!session('lock-expires-at')){
+            return redirect('/');
+        }
+
+        if(session('lock-expires-at') > now()){
+            return redirect('/');
+        }
+
+        return view('auth.lockscreen');
+    }
+
+    public function unlock(Request $request)
+    {
+        $check = Hash::check($request->input('password'), $request->user()->password);
+
+        if(!$check){
+            return redirect()->route('auth.login.locked')->withErrors([
+                'password' => 'Your password does not match our records.'
+            ]);
+        }
+
+        session(['lock-expires-at' => now()->addMinutes($request->user()->getLockoutTime())]);
+
+        return redirect()->route('home');
     }
 }

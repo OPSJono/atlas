@@ -317,7 +317,7 @@
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="{{ URL :: to('lockscreen') }} ">
+                                <a href="{{ route('auth.login.lock') }} ">
                                     <i class="fa fa-fw fa-lock"></i>
                                     Lock
                                 </a>
@@ -361,7 +361,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ URL::to('lockscreen') }} ">
+                                    <a href="{{ route('auth.login.lock') }} ">
                                         <i class="fa fa-fw fa-lock"></i>
                                     </a>
                                 </li>
@@ -764,16 +764,6 @@
                             <span class="fa arrow"></span>
                         </a>
                         <ul class="sub-menu">
-                            <li {!! (Request::is('lockscreen')? 'class="active"':"") !!}>
-                                <a href="{{URL::to('lockscreen')}} ">
-                                    <i class="fa fa-fw fa-lock"></i> Lockscreen
-                                </a>
-                            </li>
-                            <li {!! (Request::is('lockscreen2')? 'class="active"':"") !!}>
-                                <a href="{{URL::to('lockscreen2')}} ">
-                                    <i class="fa fa-fw fa-lock"></i> Lockscreen V2
-                                </a>
-                            </li>
                             <li {!! (Request::is('invoice')? 'class="active"':"") !!}>
                                 <a href="{{URL::to('invoice')}} ">
                                     <i class="fa fa-fw fa-newspaper-o"></i> Invoice
@@ -782,36 +772,6 @@
                             <li {!! (Request::is('blank')? 'class="active"':"") !!}>
                                 <a href="{{URL::to('blank')}} ">
                                     <i class="fa fa-fw fa-file-o"></i> Blank
-                                </a>
-                            </li>
-                            <li {!! (Request::is('login')? 'class="active"':"") !!}>
-                                <a href="{{URL::to('login')}} ">
-                                    <i class="fa fa-fw fa-sign-in"></i> Login
-                                </a>
-                            </li>
-                            <li {!! (Request::is('login2')? 'class="active"':"") !!}>
-                                <a href="{{URL::to('login2')}} ">
-                                    <i class="fa fa-fw fa-sign-in"></i> Login V2
-                                </a>
-                            </li>
-                            <li {!! (Request::is('register')? 'class="active"':"") !!}>
-                                <a href="{{URL::to('register')}} ">
-                                    <i class="fa fa-fw fa-sign-in"></i> Register
-                                </a>
-                            </li>
-                            <li {!! (Request::is('register2')? 'class="active"':"") !!}>
-                                <a href="{{URL::to('register2')}} ">
-                                    <i class="fa fa-fw fa-sign-in"></i> Register V2
-                                </a>
-                            </li>
-                            <li {!! (Request::is('404')? 'class="active"':"") !!}>
-                                <a href="{{URL::to('404')}} ">
-                                    <i class="fa fa-fw fa-unlink"></i> 404 Error
-                                </a>
-                            </li>
-                            <li {!! (Request::is('500')? 'class="active"':"") !!}>
-                                <a href="{{URL::to('500')}} ">
-                                    <i class="fa fa-fw fa-frown-o"></i> 500 Error
                                 </a>
                             </li>
                         </ul>

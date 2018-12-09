@@ -5,7 +5,7 @@
 ----------------------------*/
 body {
   font-family: 'Open Sans' !important;
-  background:url(../img/pages/bg-1.jpg);
+  background:url(../img/pages/lock_screen.jpg);
   height:100%;
   padding-top:5%;
 
@@ -62,8 +62,11 @@ html,body{
 
 .form-box {
     padding-top: 32px;
+    padding-bottom: 50px;
 }
-.form-box input{
+.form-box input,
+.form-group .form-control input
+{
     width: 80%;
     padding: 10px;
     text-align: center;
@@ -72,6 +75,15 @@ html,body{
     border: 1px solid #ccc;
     background: #fafafa;
     transition: 0.2s ease-in-out;
+}
+
+.form-box .logout-btn {
+    border-radius: 5px;
+    margin-left: 36px;
+}
+.form-box .login-btn {
+    border-radius: 5px;
+    margin-right: 36px;
 }
 
 .form-box input:focus{
