@@ -34,7 +34,7 @@
                         <small>Locked {{ session('lock-expires-at')->diffForHumans() }}</small>
                     @endif
                 </div>
-                <div class="avatar"></div>
+                <div class="avatar" style="background-image: 'http://i.pravatar.cc/300';"></div>
                 <div class="form-box">
                     <form action="{{ route('auth.login.unlock') }}" method="POST" id="authentication">
                         <div class="form">

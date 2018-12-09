@@ -151,8 +151,7 @@ html,body{
   animation-name: fadeInUp;
 }
 .avatar{
-
-  background-image: url('../img/authors/avatar1.jpg');
+  background-image: url('http://i.pravatar.cc/300');
 }
 
 .user-name{

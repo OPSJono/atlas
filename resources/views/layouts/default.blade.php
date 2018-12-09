@@ -29,9 +29,9 @@
 <!-- header logo: style can be found in header-->
 <header class="header">
     <nav class="navbar navbar-expand-md navbar-static-top">
-        <a href="index " class="logo navbar-brand">
+        <a href="/" class="logo navbar-brand">
             <!-- Add the class icon to your logo image or logo icon to add the margining -->
-            <img src="{{asset('assets/img/atlas/logo_64x64.png')}}" alt="logo"/> <span class="logo-title">Atlas</span>
+            <img src="{{asset('assets/img/atlas/logo_64x64.png')}}" height="36" alt="logo"/> <span class="logo-title">Atlas</span>
         </a>
 
         <!-- Header Navbar: style can be found in header-->
@@ -56,7 +56,7 @@
                         <li class="dropdown-title">New Messages</li>
                         <li class="msg-set message striped-col">
                             <a href="" class="">
-                                <img class="message-image rounded-circle" src="{{asset('assets/img/authors/avatar7.jpg')}}"
+                                <img class="message-image rounded-circle" src="http://i.pravatar.cc/300"
                                      alt="avatar-image">
 
                                 <div class="message-body"><strong>Ernest Kerry</strong>
@@ -70,7 +70,7 @@
                         </li>
                         <li class="msg-set message">
                             <a href="" class="">
-                                <img class="message-image rounded-circle" src="{{asset('assets/img/authors/avatar6.jpg')}}"
+                                <img class="message-image rounded-circle" src="http://i.pravatar.cc/300"
                                      alt="avatar-image">
 
                                 <div class="message-body"><strong>John</strong>
@@ -84,7 +84,7 @@
                         </li>
                         <li class="msg-set message striped-col">
                             <a href="" class="">
-                                <img class="message-image rounded-circle" src="{{asset('assets/img/authors/avatar5.jpg')}}"
+                                <img class="message-image rounded-circle" src="http://i.pravatar.cc/300"
                                      alt="avatar-image">
 
                                 <div class="message-body">
@@ -99,7 +99,7 @@
                         </li>
                         <li class="msg-set message">
                             <a href="" class="">
-                                <img class="message-image rounded-circle" src="{{asset('assets/img/authors/avatar1.jpg')}}"
+                                <img class="message-image rounded-circle" src="http://i.pravatar.cc/300"
                                      alt="avatar-image">
                                 <div class="message-body">
                                     <strong>Jenny Kerry</strong>
@@ -112,7 +112,7 @@
                         </li>
                         <li class="msg-set message striped-col">
                             <a href="" class="">
-                                <img class="message-image rounded-circle" src="{{asset('assets/img/authors/avatar.jpg')}}"
+                                <img class="message-image rounded-circle" src="http://i.pravatar.cc/300"
                                      alt="avatar-image">
                                 <div class="message-body">
                                     <strong>Tony</strong>
@@ -215,7 +215,7 @@
 
                         <li class="message striped-col">
                             <a href="" class=" icon-not">
-                                <img class="message-image rounded-circle" src="{{asset('assets/img/authors/avatar3.jpg')}}"
+                                <img class="message-image rounded-circle" src="http://i.pravatar.cc/300"
                                      alt="avatar-image">
 
                                 <div class="message-body">
@@ -230,7 +230,7 @@
                         </li>
                         <li class="message">
                             <a href="" class=" icon-not">
-                                <img class="message-image rounded-circle" src="{{asset('assets/img/authors/avatar.jpg')}}"
+                                <img class="message-image rounded-circle" src="http://i.pravatar.cc/300"
                                      alt="avatar-image">
                                 <div class="message-body">
                                     <strong>Tony</strong>
@@ -243,7 +243,7 @@
                         </li>
                         <li class="message striped-col">
                             <a href="" class=" icon-not">
-                                <img class="message-image rounded-circle" src="{{asset('assets/img/authors/avatar6.jpg')}}"
+                                <img class="message-image rounded-circle" src="http://i.pravatar.cc/300"
                                      alt="avatar-image">
 
                                 <div class="message-body">
@@ -258,7 +258,7 @@
                         </li>
                         <li class="message">
                             <a href="" class=" icon-not">
-                                <img class="message-image rounded-circle" src="{{asset('assets/img/authors/avatar1.jpg')}}"
+                                <img class="message-image rounded-circle" src="http://i.pravatar.cc/300"
                                      alt="avatar-image">
                                 <div class="message-body">
                                     <strong>Jenny Kerry</strong>
@@ -271,7 +271,7 @@
                         </li>
                         <li class="message striped-col">
                             <a href="" class=" icon-not ">
-                                <img class="message-image rounded-circle" src="{{asset('assets/img/authors/avatar7.jpg')}}"
+                                <img class="message-image rounded-circle" src="http://i.pravatar.cc/300"
                                      alt="avatar-image">
 
                                 <div class="message-body">
@@ -290,7 +290,7 @@
                 <!-- User Account: style can be found in dropdown-->
                 <li class="nav-item dropdown user user-menu">
                     <a href="#" class="nav-link dropdown-toggle padding-user pt-3">
-                        <img src="{{asset('assets/img/authors/avatar1.jpg')}}" width="35"
+                        <img src="http://i.pravatar.cc/300" width="35"
                              class="rounded-circle img-fluid pull-left"
                              height="35" alt="User Image">
                         <div class="riot">
@@ -303,7 +303,7 @@
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
-                            <img src="{{asset('assets/img/authors/avatar1.jpg')}}" class="rounded-circle" alt="User Image">
+                            <img src="http://i.pravatar.cc/300" class="rounded-circle" alt="User Image">
                             <p>{{ Auth::user()->display_name }}</p>
                         </li>
                         <!-- Menu Body -->
@@ -348,7 +348,7 @@
                 <div class="nav_profile">
                     <div class="media profile-left">
                         <a class="pull-left profile-thumb" href="#">
-                            <img src="{{asset('assets/img/authors/avatar1.jpg')}}" class="rounded-circle" alt="User Image">
+                            <img src="http://i.pravatar.cc/300" class="rounded-circle" alt="User Image">
                         </a>
                         <div class="content-profile pl-3">
                             <h4 class="media-heading">
