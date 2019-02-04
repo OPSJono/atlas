@@ -31,7 +31,6 @@ trait DataTablesResponseTrait
             return $currentPage;
         });
 
-
         // Retrieve the records using the paginator
         $paginator = $query->paginate($perPage);
 
@@ -51,21 +50,33 @@ trait DataTablesResponseTrait
 
     public function format_data ( $columns, $data )
     {
-        $out = array();
-        for ( $i=0, $ien=count($data) ; $i<$ien ; $i++ ) {
-            $row = array();
-            for ( $j=0, $jen=count($columns) ; $j<$jen ; $j++ ) {
-                $column = $columns[$j];
+        // Start with an empty array.
+        $out = [];
+
+        // Loop through all the data
+        foreach($data as $i => $value) {
+
+            // Start each row as an empty array
+            $row = [];
+
+            // Loop through all the columns
+            foreach($columns as $j => $column) {
+
                 // Is there a formatter?
+                // If a formatter was defined in the `getDataTableColumns` method then we call that function.
+                // Passing in the 'db' (column name) and the 'value' from the database as the arguments
                 if ( isset( $column['formatter'] ) ) {
                     $row[ $column['dt'] ] = $column['formatter']( $data[$i][ $column['db'] ], $data[$i] );
-                }
-                else {
+                } else {
+                    // If there isn't a formatter, we just assign the value directly.
                     $row[ $column['dt'] ] = $data[$i][ $columns[$j]['db'] ];
                 }
             }
+            // Now we're built the row, we append it to the final output array.
             $out[] = $row;
         }
+
+        // Return the build-up data array.
         return $out;
     }
 }
