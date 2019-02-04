@@ -53,6 +53,20 @@ class UserController extends Controller
             }
         }
 
+        foreach ($request->get('order', []) as $order) {
+
+            $input = $request->all();
+
+            if(isset($input['columns'][$order['column']])) {
+                $column = $input['columns'][$order['column']];
+                if($column['orderable'] == "true") {
+                    if(isset($column['name']) && !empty($column['name'])) {
+                        $users->orderBy($column['name'], $order['dir']);
+                    }
+                }
+            }
+        }
+
         return $this->data_tables_json_response($request, (new User), $users);
 
     }
