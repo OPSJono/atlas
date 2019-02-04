@@ -64,30 +64,38 @@ class User extends Authenticatable implements DataTablesInterface
      * 'formatter' is a function which gets called, where the first argument is the value from the database,
      * and the second argument is the entire row from the DB.
      *
+     * The keys in the $columns array are unused. Just there to make the array more readable.
+     *
      * @return array
      */
     public static function getDataTableColumns():array
     {
         $columns = [
-            [
+            'forename' => [
                 'title' => 'Forename',
                 'orderable' => "true",
                 'searchable' => "true",
                 'db' => 'forename',
                 'dt' => 0
-            ], [
+            ],
+
+            'surname' => [
                 'title' => 'Surname',
                 'orderable' => "true",
                 'searchable' => "true",
                 'db' => 'surname',
                 'dt' => 1
-            ], [
+            ],
+
+            'email' => [
                 'title' => 'Email',
                 'orderable' => "true",
                 'searchable' => "true",
                 'db' => 'email',
                 'dt' => 2
-            ], [
+            ],
+
+            'created_at' => [
                 'title' => 'Created At',
                 'orderable' => "true",
                 'searchable' => "false",
@@ -100,7 +108,9 @@ class User extends Authenticatable implements DataTablesInterface
 
                     return $data;
                 }
-            ], [
+            ],
+
+            'actions' => [
                 'title' => 'Actions',
                 'orderable' => "false",
                 'searchable' => "false",
