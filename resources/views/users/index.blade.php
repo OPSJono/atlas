@@ -53,21 +53,17 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive table-responisve-lg table-responsive-xl">
-                            <table class="table table-bordered js-datatables" id="table" data-url="{{ route('user.list') }}" data-responsive="true" data-processing="true" data-server-side="true" data-method="GET">
+                            <table class="table table-bordered js-datatables" {!!  \Atlas\Models\User::getDataTableAttributes()  !!}>
                                 <thead>
                                     <tr class="search">
-                                        <th data-searchable="true" data-orderable="true" data-column="forename">First Name</th>
-                                        <th data-searchable="true" data-orderable="true" data-column="surname">Last Name</th>
-                                        <th data-searchable="true" data-orderable="true" data-column="email">E-mail</th>
-                                        <th data-searchable="false" data-orderable="true" data-column="created_at">Created At</th>
-                                        <th data-searchable="false" data-orderable="false" data-column="id">Actions</th>
+                                        @foreach(\Atlas\Models\User::getDataTableColumns() as $column)
+                                            <th data-searchable="{{ $column['searchable'] }}" data-orderable="{{ $column['orderable'] }}" data-column="{{ $column['db'] }}">{{ $column['title'] }}</th>
+                                        @endforeach
                                     </tr>
                                     <tr class="headers">
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>E-mail</th>
-                                        <th>Created At</th>
-                                        <th>Actions</th>
+                                        @foreach(\Atlas\Models\User::getDataTableColumns() as $column)
+                                            <th>{{ $column['title'] }}</th>
+                                        @endforeach
                                     </tr>
                                 </thead>
                             </table>

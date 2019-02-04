@@ -41,25 +41,69 @@ class User extends Authenticatable implements DataTablesInterface
     ];
 
     /**
+     * A method to get the data-attributes required to put on a <table> for Datatables to function.
+     *
+     * @return string
+     */
+    public static function getDataTableAttributes():string
+    {
+        // Start with the URL that Datatables calls to get the data.
+        $string = 'data-url="'. route('user.list') .'"';
+
+        // Set the server-side flags.
+        $string .= 'data-responsive="true" data-processing="true" data-server-side="true" data-method="GET"';
+        return $string;
+    }
+    /**
+     * A method to return the Columns used for Datatables.
+     * 'title' Is the text displayed in the column header.
+     * 'orderable' defines if we can order by this column. "true"/"false" must be a string.
+     * 'searchable' defines if we can search by this column. "true"/"false" must be a string.
+     * 'db' is the column name in the database.
+     * 'dt' is the sequence of the column in the HTML
+     * 'formatter' is a function which gets called, where the first argument is the value from the database,
+     * and the second argument is the entire row from the DB.
+     *
      * @return array
      */
     public static function getDataTableColumns():array
     {
-        $columns = array(
-            array( 'db' => 'forename', 'dt' => 0 ),
-            array( 'db' => 'surname',  'dt' => 1 ),
-            array( 'db' => 'email',   'dt' => 2 ),
-            array(
+        $columns = [
+            [
+                'title' => 'Forename',
+                'orderable' => "true",
+                'searchable' => "true",
+                'db' => 'forename',
+                'dt' => 0
+            ], [
+                'title' => 'Surname',
+                'orderable' => "true",
+                'searchable' => "true",
+                'db' => 'surname',
+                'dt' => 1
+            ], [
+                'title' => 'Email',
+                'orderable' => "true",
+                'searchable' => "true",
+                'db' => 'email',
+                'dt' => 2
+            ], [
+                'title' => 'Created At',
+                'orderable' => "true",
+                'searchable' => "false",
                 'db' => 'created_at',
                 'dt' => 3,
                 'formatter' => function(Carbon $d, $row) {
                     $data = '
                         <span class="bootstrap-tooltip" data-container="body" data-toggle="tooltip" data-title="'. (string) $d .'">'.$d->diffForHumans().'</span>
                     ';
+
                     return $data;
                 }
-            ),
-            array(
+            ], [
+                'title' => 'Actions',
+                'orderable' => "false",
+                'searchable' => "false",
                 'db'        => 'id',
                 'dt'        => 4,
                 'formatter' => function( $d, $row ) {
@@ -78,8 +122,8 @@ class User extends Authenticatable implements DataTablesInterface
 
                     return $data;
                 }
-            ),
-        );
+            ],
+        ];
 
         return $columns;
     }
