@@ -17,21 +17,28 @@ trait DataTablesResponseTrait
      */
     public function data_tables_json_response(Request $request, DataTablesInterface $model, Builder $query)
     {
+        // Grab the array of columns from the model we've been passed.
         $columns = $model::getDataTableColumns();
 
+        // Grab the amount of records we should retrieve per page from the input. Default 10
         $perPage = $request->get('length', 10);
 
+        // Work out what the current page is based on the records datatables has already.
         $currentPage = round($request->get('start', 0) / $request->get('length', 10) + 1);
 
+        // Set the current page in the Paginator
         Paginator::currentPageResolver(function () use ($currentPage) {
             return $currentPage;
         });
 
+
+        // Retrieve the records using the paginator
         $paginator = $query->paginate($perPage);
 
+        // Format the paginated results ready for Datatables
         $data = $this->format_data($columns, $paginator->items());
 
-
+        // Define and return the final response array for Datatables.
         $json_data = array(
             "draw"            => intval( $request->get('draw', null) ),
             "recordsTotal"    => intval( $paginator->total() ),
