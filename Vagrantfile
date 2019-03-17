@@ -39,8 +39,8 @@ Vagrant.configure("2") do |config|
   config.vm.box = "yk0/ubuntu-xenial"
   config.vm.hostname = vmconfigFile_hostName
 
-  config.vm.define :atlas do |atlas|
-    atlas.vm.network :private_network, :ip => vmconfigFile_ipAddress
+  config.vm.define :tech do |tech|
+    tech.vm.network :private_network, :ip => vmconfigFile_ipAddress
   end
 
   # Libvirt configuration options
