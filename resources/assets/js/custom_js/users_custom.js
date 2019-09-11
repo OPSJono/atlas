@@ -47,6 +47,11 @@ $(document).ready(function () {
                     console.error(response);
                 }
             },
+            
+            // Set the table to be 100% after initialisation.
+            "fnInitComplete": function() {
+                $table.css("width","100%");
+            },
         });
 
         $table.find('thead tr.search th').each( function (i) {
