@@ -45,44 +45,71 @@
         <section class="content p-l-r-15">
             <div class="row">
                 <div class="col-12">
-                <div class="card border-primary ">
-                    <div class="card-header text-white  bg-primary">
-                        <h4 class="card-title d-inline">
-                            <i class="fa fa-fw fa-users"></i> Users List
-                        </h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive table-responisve-lg table-responsive-xl">
-                            <table class="table table-bordered js-datatables" {!!  \Atlas\Models\User::getDataTableAttributes()  !!}>
-                                <thead>
-                                    <tr class="search">
-                                        @foreach(\Atlas\Models\User::getDataTableColumns() as $column)
-                                            <th data-searchable="{{ $column['searchable'] }}" data-orderable="{{ $column['orderable'] }}" data-column="{{ $column['db'] }}">{{ $column['title'] }}</th>
-                                        @endforeach
-                                    </tr>
-                                    <tr class="headers">
-                                        @foreach(\Atlas\Models\User::getDataTableColumns() as $column)
-                                            <th>{{ $column['title'] }}</th>
-                                        @endforeach
-                                    </tr>
-                                </thead>
-                            </table>
+                    <div class="card border-primary ">
+                        <div class="card-header text-white  bg-primary">
+                            <h4 class="card-title d-inline">
+                                <i class="fa fa-fw fa-users"></i> Users List
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive table-responisve-lg table-responsive-xl">
+                                <table class="table table-bordered js-datatables" {!!  \Atlas\Models\User::getDataTableAttributes()  !!}>
+                                    <thead>
+                                        <tr class="search">
+                                            @foreach(\Atlas\Models\User::getDataTableColumns() as $column)
+                                                <th data-searchable="{{ $column['searchable'] }}" data-orderable="{{ $column['orderable'] }}" data-column="{{ $column['db'] }}">{{ $column['title'] }}</th>
+                                            @endforeach
+                                        </tr>
+                                        <tr class="headers">
+                                            @foreach(\Atlas\Models\User::getDataTableColumns() as $column)
+                                                <th>{{ $column['title'] }}</th>
+                                            @endforeach
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
-                </div>
-                <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="Heading"
+                <div class="modal fade" id="deleteUser" tabindex="-1" role="dialog" aria-labelledby="Heading"
                      aria-hidden="true">
                     <div class="modal-dialog">
+                        <!-- delete user modal-content -->
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h4 class="modal-title custom_align" id="Heading">Delete User</h4>
+                                <h4 class="modal-title custom_align">Delete User</h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                             </div>
                             <div class="modal-body">
                                 <div class="alert alert-warning">
                                     <span class="fa fa-exclamation-triangle"></span> Are you sure you want to
                                     delete this Account?
+                                </div>
+                            </div>
+                            <div class="modal-footer ">
+                                <a href="deleted_users " class="btn btn-danger">
+                                    <span class="fa fa-check"></span> Yes
+                                </a>
+                                <button type="button" class="btn btn-success" data-dismiss="modal">
+                                    <span class="fa fa-close"></span> No
+                                </button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                </div>
+                <div class="modal fade" id="editUser" tabindex="-1" role="dialog" aria-labelledby="Heading"
+                     aria-hidden="true">
+                    <div class="modal-dialog">
+                        <!-- edit user modal-content -->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title custom_align">Delete User</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="alert alert-warning">
+                                    <span class="fa fa-exclamation-triangle"></span> Update User?
                                 </div>
                             </div>
                             <div class="modal-footer ">

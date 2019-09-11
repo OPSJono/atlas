@@ -120,9 +120,9 @@ class User extends Authenticatable implements DataTablesInterface
 
                     $data = '
                         <a href="'.route('user.update', $d).'">
-                            <i class="fa fa-fw fa-pencil text-primary actions_icon" title="Edit User"></i>
+                            <i class="fa fa-fw fa-pencil text-primary actions_icon js-simple-modal" title="Edit User"></i>
                         </a>
-                        <a href="'.route('user.delete', $d).'" data-toggle="modal" data-target="#delete">
+                        <a href="'.route('user.delete', $d).'" data-toggle="modal" data-target="#deleteUser">
                             <i class="fa fa-fw fa-times text-danger actions_icon" title="Delete User"></i>
                         </a>
                         <a href="'.route('user.view', $d).' ">

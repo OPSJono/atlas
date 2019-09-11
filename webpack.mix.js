@@ -162,6 +162,8 @@ var paths = {
 
 //copy start
 
+mix.copy(srcJs + 'simpleModal.js', destJs + 'simpleModal');
+
 // Copy fonts straight to public
 mix.copy(paths.bootstrap + 'js/bootstrap.min.js', destJs);
 mix.copy(paths.fontawesome + 'fonts', destFonts);

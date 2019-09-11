@@ -79,6 +79,9 @@ label {
 body.modal-open, body.swal2-in {
   padding: 0 !important;
 }
+#simpleModal .modal-body {
+  min-height: 150px;
+}
 /******  3.HEADER STYLES   ******/
 
 body > .header {

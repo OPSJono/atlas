@@ -30,7 +30,7 @@
 <header class="header">
     <nav class="navbar navbar-expand-md navbar-static-top">
         <a href="/" class="logo navbar-brand">
-            <!-- Add the class icon to your logo image or logo icon to add the margining -->
+            <!-- Add the class icon to your logo image or logo icon to add the margin -->
             <img src="{{asset('assets/img/atlas/logo_64x64.png')}}" height="36" alt="logo"/> <span class="logo-title">Atlas</span>
         </a>
 
@@ -960,12 +960,14 @@
     <aside class="right-side">
         <!-- Content -->
         @yield('content')
+        @include('layouts/parts/simpleModal')
     </aside>
     <!-- page wrapper-->
 </div>
 <!-- wrapper-->
 <!-- global js -->
 <script src="{{asset('assets/js/app.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/js/simpleModal.js')}}" type="text/javascript"></script>
 <!-- end of global js -->
 @yield('footer_scripts')
 <!-- end page level js -->
