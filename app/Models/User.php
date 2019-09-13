@@ -144,14 +144,14 @@ class User extends Authenticatable implements DataTablesInterface
                 'formatter' => function( $d, $row ) {
 
                     $data = '
+                        <a href="'.route('user.view', $d).' ">
+                            <i class="fa fa-fw fa-eye text-success actions_icon" title="View User"></i>
+                        </a>
                         <a href="'.route('user.update', $d).'" class="js-simple-modal" title="Edit User">
                             <i class="fa fa-fw fa-pencil text-primary actions_icon"></i>
                         </a>
                         <a href="'.route('user.delete', $d).'" class="js-simple-modal" title="Delete User">
                             <i class="fa fa-fw fa-times text-danger actions_icon" title="Delete User"></i>
-                        </a>
-                        <a href="'.route('user.view', $d).' ">
-                            <i class="fa fa-fw fa-star text-success actions_icon" title="View User"></i>
                         </a>
                     ';
 

@@ -60,6 +60,28 @@ class UserController extends Controller
 
     }
 
+    public function delete($id)
+    {
+        $user = User::find($id);
+
+        if(RequestFacade::method() == 'POST') {
+            $user->delete();
+
+            return Response::json([
+                'reload' => true,
+            ]);
+        }
+
+        $view = view('users.delete')
+            ->with('user', $user)
+        ;
+
+        return Response::json([
+            'html' => $view->render(),
+        ]);
+
+    }
+
     public function list(Request $request)
     {
         // Start a query on the model.

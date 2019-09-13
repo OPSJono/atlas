@@ -13,8 +13,8 @@
                 @include('layouts.parts.form.input',['model' => $user, 'field' => 'lockout_time'])
         </div>
         <div class="modal-footer modal-footer-transparent">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-success js-modal-submit">Submit</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-success js-modal-submit">Save</button>
         </div>
     {!! Form::close() !!}
-</div><!-- /.modal-content-inner -->
+</div>
