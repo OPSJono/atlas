@@ -47,8 +47,8 @@
                                     </div>
                                 </div>
                                 <div class="profile_user">
-                                    <h3 class="user_name_max">Nataliapery</h3>
-                                    <p>nataliaperye@sf.com</p>
+                                    <h3 class="user_name_max">{{ $user->display_name ?? '' }}</h3>
+                                    <p>{{ $user->email ?? '' }}</p>
                                     <span class="fa-stack faceb fa-lg">
                                          <i class="fa fa-circle fa-stack-2x"></i>
                                         <i class="fa fa-stack-1x fa-facebook fa-inverse"></i>
@@ -70,58 +70,45 @@
                                 <br/>
                                 <div class="card card-widget border-default">
                                     <div class="card-header bg-default">
-                                        <span class="card-title"> <i class="icon-chart icons"></i> Project Status<i
-                                                class="icon-settings icons pull-right"></i></span>
+                                        <span class="card-title">
+                                            <i class="icon-chart icons"></i> User Details
+                                            <a class="pull-right js-simple-modal" href="{{ route('user.update', $user->id ?? 0) }}">
+                                                <i class="icon-settings icons"></i>
+                                            </a>
+                                        </span>
                                     </div>
-                                    <div class="card-body profile_status">
-                                        <div>
-                                            <p>
-                                                <strong>Admin Template</strong>
-                                                <small class="pull-right text-muted">
-                                                    40% Complete
-                                                </small>
-                                            </p>
-                                            <div class="progress progress-xs progress-striped active">
-                                                <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
-                                                     aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
-                                                     style="width: 40%">
-                                                        <span class="sr-only">
-                                                    40% Complete (success)
-                                                </span>
+                                    <div class="card-body">
+                                        <div class="row info">
+                                            <div class="col-12 border-bottom padding7">
+                                                <div class="row">
+                                                    <div class="col-4 field-name"><strong>Forename:</strong></div>
+                                                    <div class="col-8">
+                                                        {{ $user->forename ?? ''}}
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div>
-                                            <p>
-                                                <strong>Wordpress Theme</strong>
-                                                <small class="pull-right text-muted">
-                                                    60% Complete
-                                                </small>
-                                            </p>
-                                            <div class="progress progress-xs progress-striped active">
-                                                <div class="progress-bar progress-bar-striped bg-warning" role="progressbar"
-                                                     aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                                                     style="width: 60%">
-                                                        <span class="sr-only">
-                                                    60% Complete (warning)
-                                                </span>
+                                            <div class="col-12 border-bottom padding7">
+                                                <div class="row">
+                                                    <div class="col-4 field-name"><strong>Surname:</strong></div>
+                                                    <div class="col-8">
+                                                        {{ $user->surname ?? '' }}
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div>
-                                            <p>
-                                                <strong>Laravel Project</strong>
-                                                <small class="pull-right text-muted">
-                                                    80% Complete
-                                                </small>
-                                            </p>
-                                            <div class="progress progress-xs progress-striped active">
-                                                <div class="progress-bar progress-bar-striped bg-info" role="progressbar"
-                                                     aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
-                                                     style="width: 80%">
-                                                        <span class="sr-only">
-                                                    80% Complete (info)
-                                                </span>
+                                            <div class="col-12 border-bottom padding7">
+                                                <div class="row">
+                                                    <div class="col-4 field-name"><strong>Email:</strong></div>
+                                                    <div class="col-8">
+                                                        {{ $user->email ?? ''}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 border-bottom padding7">
+                                                <div class="row">
+                                                    <div class="col-4 field-name"><strong>Lockout Time:</strong></div>
+                                                    <div class="col-8">
+                                                        {{ $user->lockout_time ?? '' }}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

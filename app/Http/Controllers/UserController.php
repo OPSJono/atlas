@@ -34,6 +34,19 @@ class UserController extends Controller
         return view('users.index');
     }
 
+    /**
+     * View the user
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function view($id)
+    {
+        $user = User::find($id);
+        return view('users.view')
+            ->with('user', $user)
+        ;
+  }
+
     public function update($id)
     {
         $user = User::find($id);
