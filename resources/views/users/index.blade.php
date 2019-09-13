@@ -71,60 +71,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal fade" id="deleteUser" tabindex="-1" role="dialog" aria-labelledby="Heading"
-                     aria-hidden="true">
-                    <div class="modal-dialog">
-                        <!-- delete user modal-content -->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title custom_align">Delete User</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="alert alert-warning">
-                                    <span class="fa fa-exclamation-triangle"></span> Are you sure you want to
-                                    delete this Account?
-                                </div>
-                            </div>
-                            <div class="modal-footer ">
-                                <a href="deleted_users " class="btn btn-danger">
-                                    <span class="fa fa-check"></span> Yes
-                                </a>
-                                <button type="button" class="btn btn-success" data-dismiss="modal">
-                                    <span class="fa fa-close"></span> No
-                                </button>
-                            </div>
-                        </div>
-                        <!-- /.modal-content -->
-                    </div>
-                </div>
-                <div class="modal fade" id="editUser" tabindex="-1" role="dialog" aria-labelledby="Heading"
-                     aria-hidden="true">
-                    <div class="modal-dialog">
-                        <!-- edit user modal-content -->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title custom_align">Delete User</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="alert alert-warning">
-                                    <span class="fa fa-exclamation-triangle"></span> Update User?
-                                </div>
-                            </div>
-                            <div class="modal-footer ">
-                                <a href="deleted_users " class="btn btn-danger">
-                                    <span class="fa fa-check"></span> Yes
-                                </a>
-                                <button type="button" class="btn btn-success" data-dismiss="modal">
-                                    <span class="fa fa-close"></span> No
-                                </button>
-                            </div>
-                        </div>
-                        <!-- /.modal-content -->
-                    </div>
-                </div>
-                <!-- /.modal-dialog -->
             </div>
             <!-- row-->
             @include('layouts.right_sidebar')

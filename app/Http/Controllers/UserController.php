@@ -6,6 +6,9 @@ use Atlas\Traits\DataTablesResponseTrait;
 
 use Atlas\Models\User;
 use Illuminate\Http\Request;
+use \Illuminate\Support\Facades\Request as RequestFacade;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Response;
 
 class UserController extends Controller
 {
@@ -29,6 +32,32 @@ class UserController extends Controller
     public function index()
     {
         return view('users.index');
+    }
+
+    public function update($id)
+    {
+        $user = User::find($id);
+
+        if(RequestFacade::method() == 'POST') {
+            $input = Input::all();
+
+            $user->fill($input);
+
+            $user->save();
+
+            return Response::json([
+                'reload' => true,
+            ]);
+        }
+
+        $view = view('users.update')
+            ->with('user', $user)
+        ;
+
+        return Response::json([
+            'html' => $view->render(),
+        ]);
+
     }
 
     public function list(Request $request)

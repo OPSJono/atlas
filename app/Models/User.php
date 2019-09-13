@@ -3,6 +3,7 @@
 namespace Atlas\Models;
 
 use Atlas\Interfaces\DataTablesInterface;
+use Atlas\Traits\CanValidateTrait;
 use Carbon\Carbon;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -17,6 +18,7 @@ class User extends Authenticatable implements DataTablesInterface
     use Notifiable;
     use HasRoles;
     use LockableTrait;
+    use CanValidateTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -38,6 +40,29 @@ class User extends Authenticatable implements DataTablesInterface
      */
     protected $hidden = [
         'password', 'remember_token',
+    ];
+
+    /**
+     * The validation rules for fields in this model
+     *
+     * @var array
+     */
+    protected $rules = [];
+
+    /**
+     * Any Validator message overrides
+     *
+     * @var array
+     */
+    protected $messages = [];
+
+    /**
+     * The attributes label overrides
+     *
+     * @var array
+     */
+    protected $attributeLabels = [
+        'lockout_time' => 'Time until lockout when inactive (in minutes)',
     ];
 
     /**
@@ -119,10 +144,10 @@ class User extends Authenticatable implements DataTablesInterface
                 'formatter' => function( $d, $row ) {
 
                     $data = '
-                        <a href="'.route('user.update', $d).'">
-                            <i class="fa fa-fw fa-pencil text-primary actions_icon js-simple-modal" title="Edit User"></i>
+                        <a href="'.route('user.update', $d).'" class="js-simple-modal" title="Edit User">
+                            <i class="fa fa-fw fa-pencil text-primary actions_icon"></i>
                         </a>
-                        <a href="'.route('user.delete', $d).'" data-toggle="modal" data-target="#deleteUser">
+                        <a href="'.route('user.delete', $d).'" class="js-simple-modal" title="Delete User">
                             <i class="fa fa-fw fa-times text-danger actions_icon" title="Delete User"></i>
                         </a>
                         <a href="'.route('user.view', $d).' ">
