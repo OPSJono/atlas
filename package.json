@@ -44,7 +44,7 @@
         "bootstrapvalidator": "https://github.com/nghuuphuoc/bootstrapvalidator.git",
         "bower-jvectormap": "https://github.com/tlvince/bower-jvectormap.git",
         "c3": "^0.4.21",
-        "chart.js": "2.7.2",
+        "chart.js": "2.9.4",
         "chartist": "0.11.0",
         "clockface.js": "https://github.com/jetapps-eu/clockface.git",
         "clockpicker": "^0.0.7",
