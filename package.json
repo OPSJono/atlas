@@ -117,7 +117,7 @@
         "summernote": "0.8.9",
         "sweetalert2": "^7.17.0",
         "tablednd": "^1.0.3",
-        "tableexport.jquery.plugin": "^1.9.9",
+        "tableexport.jquery.plugin": "^1.25.0",
         "timedropper": "https://github.com/efureev/timedropper.git#0234d20d7c6ba8136c7b6fb35bf91c31f3e58947",
         "toastr": "^2.1.4",
         "toolbar": "https://github.com/paulkinzett/toolbar.git#6ba6e2a",
